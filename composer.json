@@ -1,0 +1,15 @@
+{
+    "name": "louis/ecommerce-mvc",
+    "autoload": {
+        "psr-4": {
+            "Louis\\EcommerceMvc\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nguyen Louis",
+            "email": "nguyenlouis172@gmail.com"
+        }
+    ],
+    "require": {}
+}
