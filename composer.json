@@ -2,7 +2,7 @@
     "name": "louis/ecommerce-mvc",
     "autoload": {
         "psr-4": {
-            "Louis\\EcommerceMvc\\": "src/"
+            "Ecommerce\\": "src/"
         }
     },
     "authors": [
