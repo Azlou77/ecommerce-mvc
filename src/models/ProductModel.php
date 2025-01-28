@@ -2,18 +2,21 @@
 
 namespace Ecommerce\Models;
 
+use PDO;
 use App\Database;
 
 class ProductModel
 {
-    private $productModel;
+    private $connexion;
+
 
     public function __construct()
     {
-        $this->productModel =  new Database();
+        $this->connexion =  new Database();
     }
     public function getAllProducts()
     {
-        return $this->productModel->query('SELECT id, nom, prix,  FROM product');
+
+        return $this->connexion->query('SELECT id, name, price FROM product')->fetchAll(PDO::FETCH_ASSOC);
     }
 }

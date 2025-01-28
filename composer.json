@@ -2,7 +2,8 @@
     "name": "louis/ecommerce-mvc",
     "autoload": {
         "psr-4": {
-            "Ecommerce\\": "src/"
+            "Ecommerce\\": "src/",
+            "App\\": "App/"
         }
     },
     "authors": [
