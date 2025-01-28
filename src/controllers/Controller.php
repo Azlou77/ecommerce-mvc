@@ -6,8 +6,9 @@ class Controller
 {
     protected function render($view)
     {
-        include '../views/header.php';
+        ob_start();
         include('../views/' . $view . '.php');
-        include('../views/footer.php');
+        $content = ob_get_clean();
+        include('../views/template/template.php');
     }
 }
