@@ -16,9 +16,15 @@ class ProductController extends Controller
     {
         return $this->productModel->getAllProducts();
     }
+
+    private function getProductsByCategory()
+    {
+        return $this->productModel->getProductsByCategory();
+    }
     public function index()
     {
         $tab_products = $this->getAllProducts();
-        $this->render('product', compact('tab_products'));
+        $tab_productsCategory = $this->getProductsByCategory();
+        $this->render('product', compact('tab_products', 'tab_productsCategory'));
     }
 }
