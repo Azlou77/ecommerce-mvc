@@ -8,6 +8,8 @@ class ProductController extends Controller
 {
     private $productModel;
 
+
+
     public function __construct()
     {
         $this->productModel = new  ProductModel();
@@ -17,14 +19,9 @@ class ProductController extends Controller
         return $this->productModel->getAllProducts();
     }
 
-    private function getProductsByCategory()
-    {
-        return $this->productModel->getProductsByCategory();
-    }
     public function index()
     {
         $tab_products = $this->getAllProducts();
-        $tab_productsCategory = $this->getProductsByCategory();
-        $this->render('product', compact('tab_products', 'tab_productsCategory'));
+        $this->render('product', compact('tab_products'));
     }
 }

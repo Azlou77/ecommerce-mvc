@@ -1,6 +1,7 @@
 <?php
 
 use Ecommerce\Controllers\BlogController;
+use Ecommerce\controllers\CategoryController;
 use Ecommerce\Controllers\ContactController;
 use Ecommerce\Controllers\HomeController;
 use Ecommerce\Controllers\ProductController;
@@ -17,6 +18,9 @@ if ($url && $url == 'blog') {
 } elseif ($url && $url == 'product') {
 	$product = new ProductController();
 	$product->index();
+} elseif ($url && $url == 'category') {
+	$category = new CategoryController();
+	$category->index();
 } else {
 	$home = new HomeController();
 	$home->index();
