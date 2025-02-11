@@ -17,6 +17,6 @@ class CategoryModel
     public function getAllCategories()
     {
 
-        return $this->connexion->query('SELECT category_name FROM category')->fetchAll(PDO::FETCH_ASSOC);
+        return $this->connexion->query('SELECT id_category, category_name FROM category')->fetchAll(PDO::FETCH_ASSOC);
     }
 }

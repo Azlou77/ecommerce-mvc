@@ -9,6 +9,7 @@ use Ecommerce\Controllers\ProductController;
 require '../vendor/autoload.php';
 
 $url = $_GET['url'] ?? null;
+
 if ($url && $url == 'blog') {
 	$blog = new BlogController();
 	$blog->index();

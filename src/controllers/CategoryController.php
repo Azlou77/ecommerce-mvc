@@ -20,6 +20,6 @@ class CategoryController extends Controller
     public function index()
     {
         $tab_categories = $this->getAllCategories();
-        $this->render('category', params: compact('tab_categories'));
+        $this->render('category',  params: compact('tab_categories'));
     }
 }
