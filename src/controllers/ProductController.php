@@ -10,7 +10,6 @@ class ProductController extends Controller
     private $productModel;
     private $categoryModel;
 
-
     public function __construct()
     {
         $this->productModel = new ProductModel();
@@ -26,20 +25,23 @@ class ProductController extends Controller
     {
         return $this->categoryModel->getAllCategories();
     }
+
     private function getProductsByCategory($categoryId)
     {
-
-
         return $this->productModel->getProductsByCategory($categoryId);
     }
 
     public function index()
     {
-
-        $categoryId = $_GET['id_category'] ?? null;
         $tab_products = $this->getAllProducts();
         $tab_categories = $this->getAllCategories();
+        $this->render('product', compact('tab_products', 'tab_categories'));
+    }
+
+    public function productsByCategory($categoryId)
+    {
         $tab_productsByCategory = $this->getProductsByCategory($categoryId);
-        $this->render('product', compact('tab_products', 'tab_categories', 'tab_productsByCategory'));
+        $tab_categories = $this->getAllCategories();
+        $this->render('productByCategory', compact('tab_productsByCategory', 'tab_categories'));
     }
 }

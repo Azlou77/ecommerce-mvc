@@ -50,11 +50,13 @@
 				<section class="lattest-product-area pb-40 category-list">
 					<div class="row">
 						<!-- single product -->
-						<?php
-						foreach ($tab_products as $product) : ?>
+
+						<?php foreach ($tab_products as $product) : ?>
 							<div class="col-lg-4 col-md-6">
 								<div class="single-product">
+
 									<img class="img-fluid" src="../public/assets/img/sartoriale/<?php echo $product['img'] . '.jpg'; ?>" style="width:255px;  height:
+
 									271px">
 									<div class="product-details">
 										<h6><?php echo $product['product_name'] ?></h6>
@@ -88,7 +90,8 @@
 
 
 							</div>
-						<?php endforeach ?>
+						<?php endforeach; ?>
+
 
 
 					</div>
