@@ -26,9 +26,9 @@ class ProductController extends Controller
         return $this->categoryModel->getAllCategories();
     }
 
-    private function getProductsByCategory($categoryId)
+    private function getProductsByCategory($categoryName)
     {
-        return $this->productModel->getProductsByCategory($categoryId);
+        return $this->productModel->getProductsByCategory($categoryName);
     }
 
     public function index()
@@ -38,10 +38,10 @@ class ProductController extends Controller
         $this->render('product', compact('tab_products', 'tab_categories'));
     }
 
-    public function productsByCategory($categoryId)
+    public function productsByCategory($categoryName)
     {
-        $tab_productsByCategory = $this->getProductsByCategory($categoryId);
+        $tab_productsByCategory = $this->getProductsByCategory($categoryName);
         $tab_categories = $this->getAllCategories();
-        $this->render('productByCategory', compact('tab_productsByCategory', 'tab_categories'));
+        $this->render('productByCategory', compact('tab_productsByCategory', 'tab_categories', 'categoryName'));
     }
 }

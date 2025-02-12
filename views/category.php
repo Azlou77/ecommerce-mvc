@@ -4,7 +4,7 @@
         <ul class="main-categories">
             <?php foreach ($tab_categories as $category) : ?>
                 <li class="main-nav-list">
-                    <a href="<?php echo $category['id_category']; ?>">
+                    <a href="<?php echo $category['category_name']; ?>">
                         <span class="lnr lnr-arrow-right"></span><?php echo $category['category_name']; ?>
                     </a>
                 </li>
