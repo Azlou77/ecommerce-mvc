@@ -9,6 +9,7 @@ use Ecommerce\Controllers\ProductController;
 require '../vendor/autoload.php';
 
 $url = $_GET['url'] ?? null;
+$id_category_parent = $_GET['id_category_parent'] ?? null;
 
 if ($url && $url == 'blog') {
 	$blog = new BlogController();
@@ -19,12 +20,12 @@ if ($url && $url == 'blog') {
 } elseif ($url && $url == 'product') {
 	$product = new ProductController();
 	$product->index();
-} elseif ($url) {
-	$product = new ProductController();
-	$product->productsByCategory($url);
 } elseif ($url && $url == 'category') {
 	$category = new CategoryController();
 	$category->index();
+} elseif ($url) {
+	$product = new ProductController();
+	$product->productsByCategory($url);
 } else {
 	$home = new HomeController();
 	$home->index();
