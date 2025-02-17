@@ -23,15 +23,9 @@ if ($url && $url == 'blog') {
 } elseif ($url && $url == 'category') {
 	$category = new CategoryController();
 	$category->index();
-} elseif ($url && $url == 'subcategory') {
-	$subcategory = new SubCategoryController();
-	$subcategory->index();
-} elseif ($url && $url == 'subcategoryByCategory') {
-	$subcategory = new SubCategoryController();
-	$subcategory->subcategoriesByCategory($url);
 } elseif ($url) {
 	$product = new ProductController();
-	$product->productsByCategory($url);
+	$product->productsBySubCategory($url);
 } else {
 	$home = new HomeController();
 	$home->index();

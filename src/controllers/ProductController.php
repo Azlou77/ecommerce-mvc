@@ -26,22 +26,39 @@ class ProductController extends Controller
         return $this->categoryModel->getAllCategories();
     }
 
-    private function getProductsByCategory($categoryName)
+    private function getAllSubcategories()
     {
-        return $this->productModel->getProductsByCategory($categoryName);
+        return $this->categoryModel->getAllSubcategories();
+    }
+    // private function getProductsByCategory($categoryName)
+    // {
+    //     return $this->productModel->getProductsByCategory($categoryName);
+    // }
+
+    private function getProductsBySubCategory($subCategoryName)
+    {
+        return $this->productModel->getProductsBySubCategory($subCategoryName);
     }
 
     public function index()
     {
         $tab_products = $this->getAllProducts();
         $tab_categories = $this->getAllCategories();
-        $this->render('product', compact('tab_products', 'tab_categories'));
+        $tab_subcategories = $this->getAllSubcategories();
+        $this->render('product', compact('tab_products', 'tab_categories', 'tab_subcategories'));
     }
+    // public function productsByCategory($categoryName)
+    // {
+    //     $tab_productsByCategory = $this->getProductsByCategory($categoryName);
+    //     $tab_categories = $this->getAllCategories();
+    //     $this->render('productByCategory', compact('tab_productsByCategory', 'tab_categories', 'categoryName'));
+    // }
 
-    public function productsByCategory($categoryName)
+
+    public function productsBySubCategory($categoryName)
     {
-        $tab_productsByCategory = $this->getProductsByCategory($categoryName);
+        $tab_productsBySubCategory = $this->getProductsBySubCategory($categoryName);
         $tab_categories = $this->getAllCategories();
-        $this->render('productByCategory', compact('tab_productsByCategory', 'tab_categories', 'categoryName'));
+        $this->render('productSubByCategory', compact('tab_productsBySubCategory', 'tab_categories'));
     }
 }

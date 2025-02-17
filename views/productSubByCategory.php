@@ -51,7 +51,7 @@
                     <div class="row">
                         <!-- single product -->
 
-                        <?php foreach ($tab_productsByCategory as $product) : ?>
+                        <?php foreach ($tab_productsBySubCategory as $product) : ?>
                             <div class="col-lg-4 col-md-6">
                                 <div class="single-product">
 
