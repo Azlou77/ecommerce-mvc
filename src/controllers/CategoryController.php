@@ -26,8 +26,8 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $tab_subcategories = $this->getAllSubcategories();
         $tab_categories = $this->getAllCategories();
+        $tab_subcategories = $this->getAllSubcategories();
         $this->render('category', params: compact('tab_categories', 'tab_subcategories'));
     }
 }
