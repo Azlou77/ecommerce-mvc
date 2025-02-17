@@ -8,17 +8,19 @@
                         <span class="lnr lnr-arrow-right"></span>
                         <?php echo $category['category_name']; ?>
                     </a>
-                    <?php if (!empty($category['subCategories'])) : ?>
-                        <ul class="collapse" id="category<?php echo $category['id_category']; ?>" data-toggle="collapse" aria-expanded="false" aria-controls="category<?php echo $category['id_category']; ?>">
-                            <?php foreach ($category['subCategories'] as $subCategory) : ?>
-                                <li class="main-nav-list child">
-                                    <a href="#"><?php echo $subCategory['category_name']; ?></a>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    <?php endif; ?>
                 </li>
             <?php endforeach; ?>
         </ul>
+
+        <div id="sub-category" style="background-color:powderblue; margin-top: 20px;">
+            <div class="head">Browse Subcategories</div>
+            <ul class="main-subcategories">
+                <?php foreach ($tab_subcategories as $subCategory) : ?>
+                    <li class="main-nav-list">
+                        <?php echo $subCategory['subcategory_name']; ?>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
     </div>
 </div>

@@ -8,6 +8,7 @@ class CategoryController extends Controller
 {
     private $categoryModel;
 
+
     public function __construct()
     {
         $this->categoryModel = new CategoryModel();
@@ -18,24 +19,15 @@ class CategoryController extends Controller
         return $this->categoryModel->getAllCategories();
     }
 
-    private function getAllSubCategory($categoryIDParent)
+    private function getAllSubcategories()
     {
-        return $this->categoryModel->getAllSubCategory($categoryIDParent);
-    }
-
-    private function getCategoriesWithSubCategories()
-    {
-        $categories = $this->getAllCategories();
-        foreach ($categories as &$category) {
-            $category['subCategories'] = $this->getAllSubCategory($category['id_category']);
-            $category['is_active'] = $this->categoryModel->isActive($category['id_category']);
-        }
-        return $categories;
+        return $this->categoryModel->getAllSubcategories();
     }
 
     public function index()
     {
-        $tab_categories = $this->getCategoriesWithSubCategories();
-        $this->render('category', params: compact('tab_categories'));
+        $tab_subcategories = $this->getAllSubcategories();
+        $tab_categories = $this->getAllCategories();
+        $this->render('category', params: compact('tab_categories', 'tab_subcategories'));
     }
 }
