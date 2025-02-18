@@ -114,6 +114,52 @@
             width: 100%;
             height: 272px;
         }
+
+        .header_area .navbar .nav .nav-item:hover .nav-link,
+        .header_area .navbar .nav .nav-item.active .nav-link,
+        .sidebar-categories .main-nav-list a:hover {
+            color: #d4af37;
+
+        }
+
+        .header_area .navbar .nav .nav-item.submenu ul .nav-item:hover .nav-link {
+            background: #d4af37;
+        }
+
+        .sidebar-categories .head,
+        .filter-bar {
+            background: #d4af37;
+        }
+
+        ul.main-categories li a {
+            text-transform: capitalize;
+        }
+
+        .current {
+            color: black;
+        }
+
+        .gradient-bg,
+        .primary-btn,
+        .add-bag .add-btn,
+        .single-product .product-details .prd-bottom .social-info span::after,
+        .grid-btn:hover,
+        .list-btn:hover,
+        .grid-btn.active,
+        .list-btn.active,
+        .pagination a.active,
+        .pagination a:hover,
+        .s_Product_carousel .owl-dots div.active,
+        .s_product_text .card_area .icon_btn::after,
+        .product_description_area .nav.nav-tabs li a.active,
+        .blog-pagination .page-item.active .page-link,
+        .single-footer-widget .click-btn {
+            background: #d4af37;
+        }
+
+        .single-product .product-details .prd-bottom .social-info .hover-text {
+            color: white;
+        }
     </style>
 </head>
 

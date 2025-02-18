@@ -1,15 +1,10 @@
 <body id="category">
     <!-- Start Banner Area -->
-    <section class="banner-area organic-breadcrumb">
+    <section class="banner organic-breadcrumb">
         <div class="container">
             <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
                 <div class="col-first">
-                    <h1>Shop Category page</h1>
-                    <nav class="d-flex align-items-center">
-                        <a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
-                        <a href="#">Shop<span class="lnr lnr-arrow-right"></span></a>
-                        <a href="category.html">Fashon Category</a>
-                    </nav>
+                    <h1>Shop products</h1>
                 </div>
             </div>
         </div>
@@ -61,8 +56,8 @@
                                     <div class="product-details">
                                         <h6><?php echo $product['product_name'] ?></h6>
                                         <div class="price">
-                                            <h6>$<?php echo $product['price']; ?></h6>
-                                            <h6 class="l-through">$210.00</h6>
+                                            <h6 style="font-size:16px;">$<?php echo $product['price']; ?></h6>
+
                                         </div>
                                         <div class="prd-bottom">
 
@@ -70,14 +65,7 @@
                                                 <span class="ti-bag"></span>
                                                 <p class="hover-text">add to bag</p>
                                             </a>
-                                            <a href="" class="social-info">
-                                                <span class="lnr lnr-heart"></span>
-                                                <p class="hover-text">Wishlist</p>
-                                            </a>
-                                            <a href="" class="social-info">
-                                                <span class="lnr lnr-sync"></span>
-                                                <p class="hover-text">compare</p>
-                                            </a>
+
                                             <a href="" class="social-info">
                                                 <span class="lnr lnr-move"></span>
                                                 <p class="hover-text">view more</p>
