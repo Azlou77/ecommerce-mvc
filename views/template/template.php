@@ -135,8 +135,14 @@
             text-transform: capitalize;
         }
 
-        .current {
-            color: black;
+        .current,
+        .nice-select .option:hover,
+        .nice-select .option.focus,
+        .nice-select .option.selected.focus,
+        .nice-select .option:hover,
+        .nice-select .option.selected.focus {
+            color: #333333;
+
         }
 
         .gradient-bg,

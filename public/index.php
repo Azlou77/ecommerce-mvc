@@ -25,6 +25,9 @@ if ($url && $url == 'blog') {
 } elseif ($url) {
 	$product = new ProductController();
 	$product->ProductsBySubCategory($url);
+} elseif ($url == null) {
+	$product = new ProductController();
+	$product->showLatestProducts();
 } else {
 	$home = new HomeController();
 	$home->index();

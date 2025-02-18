@@ -57,4 +57,9 @@ class ProductController extends Controller
         $tab_categories = $this->getAllCategories();
         $this->render('productSubByCategory', compact('tab_productsBySubCategory', 'tab_categories', 'tab_subcategoriesFilter'));
     }
+    public function showLatestProducts()
+    {
+        $tab_productsBySubCategory = $this->productModel->getProductsBySubcategory('derniers');
+        $this->render('home', compact('tab_productsBySubCategory'));
+    }
 }
