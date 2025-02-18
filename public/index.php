@@ -6,7 +6,6 @@ use Ecommerce\Controllers\ContactController;
 use Ecommerce\Controllers\HomeController;
 use Ecommerce\Controllers\ProductController;
 
-
 require '../vendor/autoload.php';
 
 $url = $_GET['url'] ?? null;
@@ -25,7 +24,7 @@ if ($url && $url == 'blog') {
 	$category->index();
 } elseif ($url) {
 	$product = new ProductController();
-	$product->productsBySubCategory($url);
+	$product->ProductsBySubCategory($url);
 } else {
 	$home = new HomeController();
 	$home->index();

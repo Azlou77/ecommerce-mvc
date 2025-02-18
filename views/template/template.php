@@ -15,7 +15,7 @@
     <!-- meta character set -->
     <meta charset="UTF-8">
     <!-- Site Title -->
-    <title>Karma Shop</title>
+    <title>Peaky Blinders Shop</title>
     <!--
 		CSS
 		============================================= -->
@@ -30,6 +30,91 @@
     <link rel="stylesheet" href="../public/assets/css/ion.rangeSlider.skinFlat.css" />
     <link rel="stylesheet" href="../public/assets/css/magnific-popup.css">
     <link rel="stylesheet" href="../public/assets/css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+
+
+
+
+    <style>
+        /* Couleurs définies précédemment */
+        body {
+            background-color: #333333;
+            color: #f8f8f8;
+            font-family: 'Merriweather', serif;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #d4af37;
+            font-family: 'Cinzel', serif;
+        }
+
+        a {
+            color: #800020;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        a:hover {
+            color: #d3b8ae;
+        }
+
+        .product-card {
+            background-color: #4a4a4a;
+            border: 1px solid #5d4037;
+            color: #f8f8f8;
+            padding: 20px;
+            margin: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .product-card h4,
+        h6 {
+            color: #d4af37;
+            font-family: 'Cinzel', serif;
+        }
+
+        .product-card .price {
+            color: #d3b8ae;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .button {
+            background-color: #800020;
+            color: #f8f8f8;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .button:hover {
+            background-color: #5d4037;
+        }
+
+        .banner {
+            background: rgb(36, 36, 36);
+            /* Charbon */
+            background: linear-gradient(90deg, rgba(36, 36, 36, 1) 0%, rgba(60, 60, 60, 1) 35%, rgba(112, 128, 144, 1) 100%);
+            /* Gradient Charbon à Ardoise Grise */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            color: #f8f8f8;
+            /* Couleur du texte */
+            font-family: 'Merriweather', serif;
+
+        }
+
+        .single-product img {
+            width: 100%;
+            height: 272px;
+        }
+    </style>
 </head>
 
 <body>
@@ -116,9 +201,7 @@
                     <div class="single-footer-widget">
                         <h6>About Us</h6>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                            ut labore dolore
-                            magna aliqua.
+                            Découvrez l'élégance intemporelle et le style audacieux des Peaky Blinders dans notre boutique. Nos costumes sur mesure incarnent le charme et la sophistication des années 1920, parfaits pour affirmer votre caractère.
                         </p>
                     </div>
                 </div>

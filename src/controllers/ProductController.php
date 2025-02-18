@@ -50,9 +50,9 @@ class ProductController extends Controller
 
 
 
-    public function productsBySubCategory($categoryName)
+    public function productsBySubCategory($subCategoryName)
     {
-        $tab_productsBySubCategory = $this->getProductsBySubCategory($categoryName);
+        $tab_productsBySubCategory = $this->getProductsBySubCategory($subCategoryName);
         $tab_subcategoriesFilter  = $this->getAllSubcategories();
         $tab_categories = $this->getAllCategories();
         $this->render('productSubByCategory', compact('tab_productsBySubCategory', 'tab_categories', 'tab_subcategoriesFilter'));
