@@ -47,18 +47,14 @@ class ProductController extends Controller
         $tab_subcategories = $this->getAllSubcategories();
         $this->render('product', compact('tab_products', 'tab_categories', 'tab_subcategories'));
     }
-    // public function productsByCategory($categoryName)
-    // {
-    //     $tab_productsByCategory = $this->getProductsByCategory($categoryName);
-    //     $tab_categories = $this->getAllCategories();
-    //     $this->render('productByCategory', compact('tab_productsByCategory', 'tab_categories', 'categoryName'));
-    // }
+
 
 
     public function productsBySubCategory($categoryName)
     {
         $tab_productsBySubCategory = $this->getProductsBySubCategory($categoryName);
+        $tab_subcategoriesFilter  = $this->getAllSubcategories();
         $tab_categories = $this->getAllCategories();
-        $this->render('productSubByCategory', compact('tab_productsBySubCategory', 'tab_categories'));
+        $this->render('productSubByCategory', compact('tab_productsBySubCategory', 'tab_categories', 'tab_subcategoriesFilter'));
     }
 }

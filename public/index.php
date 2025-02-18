@@ -5,7 +5,7 @@ use Ecommerce\Controllers\CategoryController;
 use Ecommerce\Controllers\ContactController;
 use Ecommerce\Controllers\HomeController;
 use Ecommerce\Controllers\ProductController;
-use Ecommerce\Controllers\SubCategoryController;
+
 
 require '../vendor/autoload.php';
 
