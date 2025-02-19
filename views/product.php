@@ -50,7 +50,9 @@
 							<div class="col-lg-4 col-md-6">
 								<div class="single-product">
 
-									<img class="img-fluid" src="../public/assets/img/sartoriale/<?php echo $product['img'] . '.jpg'; ?>" style="width:255px;  height:271px">
+									<img class="img-fluid" src="../public/assets/img/sartoriale/<?php echo $product['img'] . '.jpg'; ?>" style="width:255px;  height:
+
+									271px">
 									<div class="product-details">
 										<h6><?php echo $product['product_name'] ?></h6>
 										<div class="price">
@@ -81,10 +83,7 @@
 
 
 					</div>
-
 				</section>
-
-
 				<!-- End Best Seller -->
 				<!-- Start Filter Bar -->
 				<div class="filter-bar d-flex flex-wrap align-items-center">

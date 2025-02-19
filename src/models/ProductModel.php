@@ -29,4 +29,11 @@ class ProductModel
         $params = [':subcat_name' => $subCategoryName];
         return $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
+    public function getFilteredProductsByColor($color)
+    {
+        $query = "SELECT * FROM product WHERE color = :color";
+        $params = [':color' => $color];
+        return $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
+        
+    }
 }

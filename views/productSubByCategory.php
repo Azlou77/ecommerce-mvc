@@ -46,17 +46,17 @@
                     <div class="row">
                         <!-- single product -->
 
-                        <?php foreach ($tab_productsBySubCategory as $product) : ?>
+                        <?php foreach ($tab_productsBySubCategory as $productsBySubCategory) : ?>
                             <div class="col-lg-4 col-md-6">
                                 <div class="single-product">
 
-                                    <img class="img-fluid" src="../public/assets/img/sartoriale/<?php echo $product['img'] . '.jpg'; ?>" style="width:255px;  height:
+                                    <img class="img-fluid" src="../public/assets/img/sartoriale/<?php echo $productsBySubCategory['img'] . '.jpg'; ?>" style="width:255px;  height:
 
 									271px">
                                     <div class="product-details">
-                                        <h6><?php echo $product['product_name'] ?></h6>
+                                        <h6><?php echo $productsBySubCategory['product_name'] ?></h6>
                                         <div class="price">
-                                            <h6 style="font-size:16px;">$<?php echo $product['price']; ?></h6>
+                                            <h6 style="font-size:16px;">$<?php echo $productsBySubCategory['price']; ?></h6>
 
                                         </div>
                                         <div class="prd-bottom">

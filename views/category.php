@@ -39,17 +39,29 @@
             </div>
             <div class="common-filter">
                 <div class="head">Color</div>
-                <form action="#">
+                <form action="index.php" method="GET" onsubmit="this.action= document.querySelector('input[name=color]:checked').value;">
                     <ul>
-                        <li class="filter-list"><input class="pixel-radio" type="radio" id="black" name="color"><label for="black">Black<span>(29)</span></label></li>
-                        <li class="filter-list"><input class="pixel-radio" type="radio" id="balckleather" name="color"><label for="balckleather">Blue
-                                <span>(29)</span></label></li>
-                        <li class="filter-list"><input class="pixel-radio" type="radio" id="blackred" name="color"><label for="blackred">Marron
-                                <span>(19)</span></label></li>
-                        <li class="filter-list"><input class="pixel-radio" type="radio" id="gold" name="color"><label for="gold">Gold<span>(19)</span></label></li>
-                        <li class="filter-list"><input class="pixel-radio" type="radio" id="spacegrey" name="color"><label for="spacegrey">Grey<span>(19)</span></label></li>
+                        <li class="filter-list">
+                            <input type="radio" id="black" name="color" value="black">
+                            <label for="black">Black<span>(29)</span></label>
+                        </li>
+                        <li class="filter-list">
+                            <input type="radio" id="blue" name="color" value="blue">
+                            <label for="blue">Blue<span>(29)</span></label>
+                        </li>
+                        <li class="filter-list">
+                            <input type="radio" id="marron" name="color" value="marron">
+                            <label for="marron">Marron<span>(19)</span></label>
+                        </li>
+                        <li class="filter-list">
+                            <input type="radio" id="grey" name="color" value="grey">
+                            <label for="grey">Grey<span>(19)</span></label>
+                        </li>
                     </ul>
+                    <button type="submit">Submit</button>
                 </form>
+
+
             </div>
             <div class="common-filter">
                 <div class="head">Price</div>

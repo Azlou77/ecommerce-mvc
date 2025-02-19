@@ -30,15 +30,13 @@ class ProductController extends Controller
     {
         return $this->categoryModel->getAllSubcategories();
     }
-    // private function getProductsByCategory($categoryName)
-    // {
-    //     return $this->productModel->getProductsByCategory($categoryName);
-    // }
-
+   
     private function getProductsBySubCategory($subCategoryName)
     {
         return $this->productModel->getProductsBySubCategory($subCategoryName);
     }
+
+   
 
     public function index()
     {
@@ -52,11 +50,25 @@ class ProductController extends Controller
 
     public function productsBySubCategory($subCategoryName)
     {
-        $tab_productsBySubCategory = $this->getProductsBySubCategory($subCategoryName);
+        $tab_productsBySubCategory = $this->getProductsBySubCategory($subCategoryName); 
         $tab_subcategoriesFilter  = $this->getAllSubcategories();
         $tab_categories = $this->getAllCategories();
         $this->render('productSubByCategory', compact('tab_productsBySubCategory', 'tab_categories', 'tab_subcategoriesFilter'));
     }
+
+    public function productFilteredByColor($color)
+    {
+        if ($color) {
+            // Récupérer les produits correspondant à la couleur sélectionnée
+            $products = $this->productModel->getFilteredProductsByColor($color);
+        } else {
+            $products = [];
+        }
+
+        $this->render('filteredProducts', compact('products'));
+    }
+    
+
     public function showLatestProducts()
     {
         $tab_productsBySubCategory = $this->productModel->getProductsBySubcategory('derniers');
