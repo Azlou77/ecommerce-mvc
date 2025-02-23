@@ -16,16 +16,7 @@ class ProductController extends Controller
         $this->categoryModel = new CategoryModel();
     }
 
-
-   
-   
-    private function getProductsBySubCategory($subCategoryName)
-    {
-        return $this->productModel->getProductsBySubCategory($subCategoryName);
-    }
-
-   
-
+    
     public function index()
     {
         $tab_products = $this->productModel->getAllProducts();
@@ -35,6 +26,10 @@ class ProductController extends Controller
     }
 
 
+    private function getProductsBySubCategory($subCategoryName)
+    {
+        return $this->productModel->getProductsBySubCategory($subCategoryName);
+    }
 
     public function productsBySubCategory($subCategoryName)
     {
@@ -43,6 +38,8 @@ class ProductController extends Controller
         $tab_categories = $this->categoryModel->getAllCategories();
         $this->render('productSubByCategory', compact('tab_productsBySubCategory', 'tab_categories', 'tab_subcategories'));
     }
+
+   
 
     private function getFilteredProductsByColor($color)
     {
@@ -53,21 +50,27 @@ class ProductController extends Controller
     {
         $products = $this->getFilteredProductsByColor($color);
         $tab_subcategories = $this->categoryModel->getAllSubcategories();
-        $this->render('productFilteredByColor', compact('products', 'tab_subcategories'));
+        $tab_categories = $this->categoryModel->getAllCategories();
+        $this->render('productFilteredByColor', compact('products', 'tab_subcategories', 'tab_categories'));
     }
 
-    // public function productFilteredByPriceRange($priceMin, $priceMax)
-    // {
-    //     $products = $this->productModel->getFilteredProductsByPriceRange($priceMin, $priceMax);
-    //     $this->render('productFilteredByPriceRange', compact('products'));
-    // }
+    private function getFilteredProductsByPriceRange($priceMin, $priceMax)
+    {
+        return $this->productModel->getFilteredProductsByPriceRange($priceMin, $priceMax);
+    }
 
-
-    
-
-    
-    
-
+    public function productFilteredByPriceRange()
+    {
+        if (isset($_GET['priceRange'])) {
+            $priceRange = explode('-', $_GET['priceRange']);
+            $priceMin = $priceRange[0];
+            $priceMax = $priceRange[1];
+            $products = $this->getFilteredProductsByPriceRange($priceMin, $priceMax);
+            $tab_subcategories = $this->categoryModel->getAllSubcategories();
+            $tab_categories = $this->categoryModel->getAllCategories();
+            $this->render('productFilteredByPriceRange', compact('products', 'tab_subcategories', 'tab_categories'));
+        }
+    }
     public function showLatestProducts()
     {
         $tab_productsBySubCategory = $this->productModel->getProductsBySubcategory('derniers');

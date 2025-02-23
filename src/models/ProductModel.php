@@ -46,16 +46,15 @@ class ProductModel
         return $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // public function getFilteredProductsByPriceRange($priceMin, $priceMax): array
-    // {
-    //     $filteredProducts = [];
-    //     $query = "SELECT * FROM product WHERE price BETWEEN :priceMin AND :priceMax";
-    //     $params = [
-    //         ':priceMin' => $priceMin,
-    //         ':priceMax' => $priceMax
-    //     ];
-    //     $filteredProducts = $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
-    //     return $filteredProducts;
-    // }
+    public function getFilteredProductsByPriceRange($priceMin, $priceMax): array
+    {
+
+        $query = "SELECT * FROM product WHERE price BETWEEN :priceMin AND :priceMax";
+        $params = [
+            ':priceMin' => $priceMin,
+            ':priceMax' => $priceMax
+        ];
+        return  $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
+    }
     
 }

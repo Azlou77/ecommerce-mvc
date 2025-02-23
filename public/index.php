@@ -9,12 +9,13 @@ use Ecommerce\Controllers\ProductController;
 require '../vendor/autoload.php';
 $url = $_GET['url'] ?? null;
 $color = $_GET['color'] ?? '';
-if ($url == 'productFilteredByColor' && !empty($color)) {
-	$productController = new ProductController();
-	$productController->productFilteredByColor($color);
-} elseif ($url && $url == 'blog') {
-	$blog = new BlogController();
-	$blog->index();
+$priceRange = $_GET['priceRange'] ?? '';
+if ($url && $url == 'productFilteredByColor' && !empty($color)) {
+	$product = new ProductController();
+	$product->productFilteredByColor($color);
+} elseif ($url && $url == 'productFilteredByPriceRange' && !empty($priceRange)) {
+	$product = new ProductController();
+	$product->productFilteredByPriceRange();
 } elseif ($url && $url == 'contact') {
 	$contact = new ContactController();
 	$contact->index();
