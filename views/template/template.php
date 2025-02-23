@@ -166,6 +166,10 @@
         .single-product .product-details .prd-bottom .social-info .hover-text {
             color: white;
         }
+
+        .nice-select .list:hover .option:not(:hover) {
+            color: black;
+        }
     </style>
 </head>
 
@@ -188,7 +192,7 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                         <ul class="nav navbar-nav menu_nav ml-auto">
-                            <li class="nav-item active"><a class="nav-link" href="home">Home</a></li>
+                            <li class="nav-item active"><a class="nav-link" href="index.php">Home</a></li>
                             <li class="nav-item submenu dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
                                     aria-haspopup="true" aria-expanded="false">Shop</a>

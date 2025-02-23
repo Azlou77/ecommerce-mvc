@@ -9,8 +9,9 @@ use Ecommerce\Controllers\ProductController;
 require '../vendor/autoload.php';
 
 $url = $_GET['url'] ?? null;
-$action = $_GET['action'] ?? null;
-$color = $_GET['color'] ?? null;
+$action = isset($_GET['action']) ? $_GET['action'] : '';
+$color = isset($_GET['color']) ? $_GET['color'] : '';
+
 if ($url && $url == 'blog') {
 	$blog = new BlogController();
 	$blog->index();
@@ -29,9 +30,9 @@ if ($url && $url == 'blog') {
 } elseif ($url == null) {
 	$product = new ProductController();
 	$product->showLatestProducts();
-} elseif ($action && $action == 'productFilteredByColor' && $color) {
-	$product = new ProductController();
-	$product->productFilteredByColor($color);
+} else if ($url) {
+	$productController = new ProductController();
+	$productController->productFilteredByColor($url);
 
 } else {
 	$home = new HomeController();

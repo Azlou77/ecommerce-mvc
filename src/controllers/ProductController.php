@@ -16,20 +16,8 @@ class ProductController extends Controller
         $this->categoryModel = new CategoryModel();
     }
 
-    private function getAllProducts()
-    {
-        return $this->productModel->getAllProducts();
-    }
 
-    private function getAllCategories()
-    {
-        return $this->categoryModel->getAllCategories();
-    }
-
-    private function getAllSubcategories()
-    {
-        return $this->categoryModel->getAllSubcategories();
-    }
+   
    
     private function getProductsBySubCategory($subCategoryName)
     {
@@ -40,9 +28,9 @@ class ProductController extends Controller
 
     public function index()
     {
-        $tab_products = $this->getAllProducts();
-        $tab_categories = $this->getAllCategories();
-        $tab_subcategories = $this->getAllSubcategories();
+        $tab_products = $this->productModel->getAllProducts();
+        $tab_categories = $this->productModel->getAllCategories();
+        $tab_subcategories = $this->categoryModel->getAllSubcategories();
         $this->render('product', compact('tab_products', 'tab_categories', 'tab_subcategories'));
     }
 
@@ -50,23 +38,33 @@ class ProductController extends Controller
 
     public function productsBySubCategory($subCategoryName)
     {
-        $tab_productsBySubCategory = $this->getProductsBySubCategory($subCategoryName); 
-        $tab_subcategoriesFilter  = $this->getAllSubcategories();
-        $tab_categories = $this->getAllCategories();
-        $this->render('productSubByCategory', compact('tab_productsBySubCategory', 'tab_categories', 'tab_subcategoriesFilter'));
+        $tab_productsBySubCategory = $this->getProductsBySubCategory($subCategoryName);
+        $tab_subcategories  = $this->categoryModel->getAllSubcategories();
+        $tab_categories = $this->categoryModel->getAllCategories();
+        $this->render('productSubByCategory', compact('tab_productsBySubCategory', 'tab_categories', 'tab_subcategories'));
+    }
+
+    private function getFilteredProductsByColor($color)
+    {
+        return $this->productModel->getFilteredProductsByColor($color);
     }
 
     public function productFilteredByColor($color)
     {
-        if ($color) {
-            // Récupérer les produits correspondant à la couleur sélectionnée
-            $products = $this->productModel->getFilteredProductsByColor($color);
-        } else {
-            $products = [];
-        }
-
-        $this->render('filteredProducts', compact('products'));
+        $products = $this->getFilteredProductsByColor($color);
+        $tab_subcategories = $this->categoryModel->getAllSubcategories();
+        $this->render('productFilteredByColor', compact('products', 'tab_subcategories'));
     }
+    // public function productFilteredByPriceRange($priceMin, $priceMax)
+    // {
+    //     $products = $this->productModel->getFilteredProductsByPriceRange($priceMin, $priceMax);
+    //     $this->render('productFilteredByPriceRange', compact('products'));
+    // }
+
+
+    
+
+    
     
 
     public function showLatestProducts()

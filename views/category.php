@@ -26,60 +26,46 @@
         <div class="sidebar-filter mt-50">
             <div class="top-filter-head">Product Filters</div>
             <div class="common-filter">
-                <div class="head">Brands</div>
-                <form action="#">
-                    <ul>
-                        <li class="filter-list"><input class="pixel-radio" type="radio" id="apple" name="brand"><label for="apple">Apple<span>(29)</span></label></li>
-                        <li class="filter-list"><input class="pixel-radio" type="radio" id="asus" name="brand"><label for="asus">Asus<span>(29)</span></label></li>
-                        <li class="filter-list"><input class="pixel-radio" type="radio" id="gionee" name="brand"><label for="gionee">Gionee<span>(19)</span></label></li>
-                        <li class="filter-list"><input class="pixel-radio" type="radio" id="micromax" name="brand"><label for="micromax">Micromax<span>(19)</span></label></li>
-                        <li class="filter-list"><input class="pixel-radio" type="radio" id="samsung" name="brand"><label for="samsung">Samsung<span>(19)</span></label></li>
-                    </ul>
-                </form>
-            </div>
-            <div class="common-filter">
                 <div class="head">Color</div>
-                <form action="index.php" method="GET" onsubmit="this.action= document.querySelector('input[name=color]:checked').value;">
+                <form id="colorForm" method="GET">
                     <ul>
                         <li class="filter-list">
-                            <input type="radio" id="black" name="color" value="black">
-                            <label for="black">Black<span>(29)</span></label>
+                            <input type="radio" id="black" name="color" value="black" onchange="setFormAction(this)">
+                            <label for="black">Black</label>
                         </li>
                         <li class="filter-list">
-                            <input type="radio" id="blue" name="color" value="blue">
-                            <label for="blue">Blue<span>(29)</span></label>
+                            <input type="radio" id="blue" name="color" value="blue" onchange="setFormAction(this)">
+                            <label for="blue">Blue</label>
                         </li>
                         <li class="filter-list">
-                            <input type="radio" id="marron" name="color" value="marron">
-                            <label for="marron">Marron<span>(19)</span></label>
+                            <input type="radio" id="grey" name="color" value="grey" onchange="setFormAction(this)">
+                            <label for="grey">Grey</label>
                         </li>
                         <li class="filter-list">
-                            <input type="radio" id="grey" name="color" value="grey">
-                            <label for="grey">Grey<span>(19)</span></label>
+                            <input type="radio" id="red" name="color" value="red" onchange="setFormAction(this)">
+                            <label for="red">Red</label>
+                        </li>
+                        <li class="filter-list">
+                            <input type="radio" id="green" name="color" value="green" onchange="setFormAction(this)">
+                            <label for="green">Green</label>
                         </li>
                     </ul>
-                    <button type="submit">Submit</button>
                 </form>
+            </div>
 
 
-            </div>
-            <div class="common-filter">
-                <div class="head">Price</div>
-                <div class="price-range-area">
-                    <div id="price-range"></div>
-                    <div class="value-wrapper d-flex">
-                        <div class="price">Price:</div>
-                        <span>$</span>
-                        <div id="lower-value"></div>
-                        <div class="to">to</div>
-                        <span>$</span>
-                        <div id="upper-value"></div>
-                    </div>
-                </div>
-            </div>
+            <script>
+                function setFormAction(radio) {
+                    var color = radio.value;
+                    window.location.href = color;
+                }
+            </script>
+
+
+
+
+
+
         </div>
 
-
     </div>
-
-</div>

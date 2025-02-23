@@ -16,7 +16,7 @@ class ProductModel
 
     public function getAllProducts()
     {
-        return $this->connexion->query("SELECT id_product, product_name, price, img FROM product")->fetchAll(PDO::FETCH_ASSOC);
+        return $this->connexion->query("SELECT * FROM product")->fetchAll(PDO::FETCH_ASSOC);
     }
 
 
@@ -25,15 +25,37 @@ class ProductModel
     {
         $query = "SELECT product.*, subcategory.subcategory_name FROM product 
                   INNER JOIN subcategory ON product.subcat = subcategory.id_subcategory 
+
                   WHERE subcategory.subcategory_name = :subcat_name";
         $params = [':subcat_name' => $subCategoryName];
         return $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getAllCategories()
+    {
+
+        return $this->connexion->query("SELECT * FROM category")->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    
     public function getFilteredProductsByColor($color)
     {
+        
         $query = "SELECT * FROM product WHERE color = :color";
         $params = [':color' => $color];
         return $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
-        
     }
+
+    // public function getFilteredProductsByPriceRange($priceMin, $priceMax): array
+    // {
+    //     $filteredProducts = [];
+    //     $query = "SELECT * FROM product WHERE price BETWEEN :priceMin AND :priceMax";
+    //     $params = [
+    //         ':priceMin' => $priceMin,
+    //         ':priceMax' => $priceMax
+    //     ];
+    //     $filteredProducts = $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
+    //     return $filteredProducts;
+    // }
+    
 }
