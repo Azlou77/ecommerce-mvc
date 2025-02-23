@@ -66,7 +66,7 @@
 												<p class="hover-text">add to bag</p>
 											</a>
 
-											<a href="" class="social-info">
+											<a href="index.php?url=productDetail&idProduct=<?php echo $product['id_product']; ?>" class="social-info">
 												<span class="lnr lnr-move"></span>
 												<p class="hover-text">view more</p>
 											</a>

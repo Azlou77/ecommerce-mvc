@@ -25,6 +25,12 @@ class ProductController extends Controller
         $this->render('product', compact('tab_products', 'tab_categories', 'tab_subcategories'));
     }
 
+    public function getProduct($idProduct)
+    {
+        $product = $this->productModel->getOneProduct($idProduct);
+        $this->render('productDetail', compact('product'));
+    }
+
 
     private function getProductsBySubCategory($subCategoryName)
     {

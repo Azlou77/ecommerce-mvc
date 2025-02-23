@@ -10,6 +10,9 @@ require '../vendor/autoload.php';
 $url = $_GET['url'] ?? null;
 $color = $_GET['color'] ?? '';
 $priceRange = $_GET['priceRange'] ?? '';
+$idProduct = $_GET['idProduct'] ?? null;
+
+
 if ($url && $url == 'productFilteredByColor' && !empty($color)) {
 	$product = new ProductController();
 	$product->productFilteredByColor($color);
@@ -22,6 +25,9 @@ if ($url && $url == 'productFilteredByColor' && !empty($color)) {
 } elseif ($url && $url == 'product') {
 	$product = new ProductController();
 	$product->index();
+} elseif ($url == 'productDetail' && !empty($idProduct)) {
+	$product = new ProductController();
+	$product->getProduct($idProduct);
 } elseif ($url && $url == 'category') {
 	$category = new CategoryController();
 	$category->index();

@@ -199,7 +199,7 @@
                                 <ul class="dropdown-menu">
                                     <li class="nav-item"><a class="nav-link" href="product">All products</a></li>
                                     <li class="nav-item"><a class="nav-link" href="category">All categories</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="checkout.html">Product Checkout</a>
+                                    <li class="nav-item"><a class="nav-link" href="single-product">Product Checkout</a>
                                     </li>
                                     <li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
                                     <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a>

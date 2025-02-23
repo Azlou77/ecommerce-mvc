@@ -18,6 +18,12 @@ class ProductModel
     {
         return $this->connexion->query("SELECT * FROM product")->fetchAll(PDO::FETCH_ASSOC);
     }
+    public function getOneProduct($idProduct)
+    {
+        $query = "SELECT * FROM product WHERE id_product = :idProduct";
+        $params = [':idProduct' => $idProduct];
+        return $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
+    }
 
 
 
