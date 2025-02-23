@@ -25,47 +25,61 @@
         </ul>
         <div class="sidebar-filter mt-50">
             <div class="top-filter-head">Product Filters</div>
-
             <div class="common-filter">
                 <div class="head">Color</div>
-                <form method="GET" onsubmit="this.action= document.querySelector('input[name=color]:checked').value;">
+                <form id="colorForm" method="GET">
                     <ul>
                         <li class="filter-list">
-                            <input type="radio" id="black" name="color" value="black">
-                            <label for="black">Black<span>(29)</span></label>
+                            <input type="radio" id="black" name="color" value="black" onchange="setFormColorAction(this)">
+                            <label for="black">Black</label>
                         </li>
                         <li class="filter-list">
-                            <input type="radio" id="blue" name="color" value="blue">
-                            <label for="blue">Blue<span>(29)</span></label>
+                            <input type="radio" id="blue" name="color" value="blue" onchange="setFormColorAction(this)">
+                            <label for="blue">Blue</label>
                         </li>
                         <li class="filter-list">
-                            <input type="radio" id="marron" name="color" value="marron">
-                            <label for="marron">Marron<span>(19)</span></label>
+                            <input type="radio" id="grey" name="color" value="grey" onchange="setFormColorAction(this)">
+                            <label for="grey">Grey</label>
                         </li>
-                        <li class="filter-list">
-                            <input type="radio" id="grey" name="color" value="grey">
-                            <label for="grey">Grey<span>(19)</span></label>
-                        </li>
+
                     </ul>
-                    <button type="submit">Submit</button>
                 </form>
-
-
             </div>
+
+            <script>
+                function setFormColorAction(element) {
+                    var color = element.value;
+                    window.location.href = 'index.php?url=productFilteredByColor&color=' + color;
+                }
+            </script>
+
+
+
             <div class="common-filter">
-                <div class="head">Price</div>
-                <div class="price-range-area">
-                    <div id="price-range"></div>
-                    <div class="value-wrapper d-flex">
-                        <div class="price">Price:</div>
-                        <span>$</span>
-                        <div id="lower-value"></div>
-                        <div class="to">to</div>
-                        <span>$</span>
-                        <div id="upper-value"></div>
-                    </div>
-                </div>
+                <div class="head">Price range</div>
+                <form id="priceRangeForm" method="GET">
+                    <ul>
+                        <li class="filter-list">
+                            <input type="radio" name="priceRange" value="0-50" id="range1" onchange="setFormPriceRangeAction(this)">
+                            <label for="range1">0-50</label>
+                        </li>
+                        <li class="filter-list">
+                            <input type="radio" name="priceRange" value="50-300" id="range2" onchange="setFormPriceRangeAction(this)">
+                            <label for="range2">50-300</label>
+                        </li>
+                        <!-- Add more price ranges here if needed -->
+                    </ul>
+                </form>
             </div>
+
+            <script>
+                function setFormPriceRangeAction(element) {
+                    var priceRange = element.value;
+                    window.location.href = 'index.php?url=productFilteredByPriceRange&priceRange=' + priceRange;
+                }
+            </script>
+
+
         </div>
 
 
