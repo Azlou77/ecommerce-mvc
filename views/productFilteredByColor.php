@@ -1,5 +1,5 @@
 <!-- start filtered product Area -->
- <h1>Produits filtrés par couleurs</h1>
+<h1>Produits filtrés par couleurs</h1>
 <section class="section_gap">
     <!-- single product slide -->
     <div class="single-product-slider">
@@ -17,7 +17,7 @@
                         <!-- single product -->
                         <div class="col-lg-3 col-md-6">
                             <div class="single-product">
-                                <img class="img-fluid" src="./uploads/<?php echo htmlspecialchars($product['image']); ?>" alt="<?php echo htmlspecialchars($product['image']); ?>">
+                                <img class="img-fluid" src="../public/assets/img/sartoriale/<?php echo $product['img'] . '.jpg'; ?>" style="width:255px;  height:271px">
                                 <div class="product-details">
                                     <h6><?php echo $product['product_name']; ?></h6>
                                     <div class="price">

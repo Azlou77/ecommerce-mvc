@@ -53,19 +53,36 @@
                 </form>
             </div>
 
-
             <script>
-                function setFormAction(radio) {
-                    var color = radio.value;
-                    window.location.href = color;
+                function setFormAction(element) {
+                    var color = element.value;
+                    window.location.href = 'index.php?url=productFilteredByColor&color=' + color;
                 }
             </script>
 
 
 
-
-
+            <div class="common-filter">
+                <div class="head">Price range</div>
+                <form method="GET" action="index.php" onsubmit="this.action = 'index.php?action=productFilteredByPriceRange&priceRange=' + document.querySelector('input[name=priceRange]:checked').value;">
+                    <ul>
+                        <li class="filter-list">
+                            <input type="radio" name="priceRange" value="0-50" id="range1">
+                            <label for="range1">0-50</label>
+                        </li>
+                        <li class="filter-list">
+                            <input type="radio" name="priceRange" value="50-300" id="range2">
+                            <label for="range2">50-300</label>
+                        </li>
+                        <!-- Add more price ranges here if needed -->
+                    </ul>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
 
         </div>
 
+
     </div>
+
+</div>

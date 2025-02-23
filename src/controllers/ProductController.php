@@ -55,6 +55,7 @@ class ProductController extends Controller
         $tab_subcategories = $this->categoryModel->getAllSubcategories();
         $this->render('productFilteredByColor', compact('products', 'tab_subcategories'));
     }
+
     // public function productFilteredByPriceRange($priceMin, $priceMax)
     // {
     //     $products = $this->productModel->getFilteredProductsByPriceRange($priceMin, $priceMax);

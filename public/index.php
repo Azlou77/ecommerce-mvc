@@ -7,12 +7,12 @@ use Ecommerce\Controllers\HomeController;
 use Ecommerce\Controllers\ProductController;
 
 require '../vendor/autoload.php';
-
 $url = $_GET['url'] ?? null;
-$action = isset($_GET['action']) ? $_GET['action'] : '';
-$color = isset($_GET['color']) ? $_GET['color'] : '';
-
-if ($url && $url == 'blog') {
+$color = $_GET['color'] ?? '';
+if ($url == 'productFilteredByColor' && !empty($color)) {
+	$productController = new ProductController();
+	$productController->productFilteredByColor($color);
+} elseif ($url && $url == 'blog') {
 	$blog = new BlogController();
 	$blog->index();
 } elseif ($url && $url == 'contact') {
@@ -30,10 +30,6 @@ if ($url && $url == 'blog') {
 } elseif ($url == null) {
 	$product = new ProductController();
 	$product->showLatestProducts();
-} else if ($url) {
-	$productController = new ProductController();
-	$productController->productFilteredByColor($url);
-
 } else {
 	$home = new HomeController();
 	$home->index();
