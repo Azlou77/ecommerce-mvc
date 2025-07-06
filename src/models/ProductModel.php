@@ -25,6 +25,13 @@ class ProductModel
         return $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getProductsFromCart()
+    {
+        return $this->connexion->query("SELECT product_name, price, img FROM product")->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
+
 
 
     public function getProductsBySubCategory($subCategoryName)

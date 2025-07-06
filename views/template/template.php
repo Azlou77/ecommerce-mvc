@@ -1,252 +1,80 @@
 <!DOCTYPE html>
-<html lang="zxx" class="no-js">
+<html>
 
 <head>
-    <!-- Mobile Specific Meta -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Favicon-->
-    <link rel="shortcut icon" href="img/fav.png">
-    <!-- Author Meta -->
-    <meta name="author" content="CodePixar">
-    <!-- Meta Description -->
-    <meta name="description" content="">
-    <!-- Meta Keyword -->
-    <meta name="keywords" content="">
+  
     <!-- meta character set -->
     <meta charset="UTF-8">
     <!-- Site Title -->
     <title>Peaky Blinders Shop</title>
-    <!--
-		CSS
-		============================================= -->
-    <link rel="stylesheet" href="../public/assets/css/linearicons.css">
-    <link rel="stylesheet" href="../public/assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../public/assets/css/themify-icons.css">
-    <link rel="stylesheet" href="../public/assets/css/bootstrap.css">
-    <link rel="stylesheet" href="../public/assets/css/owl.carousel.css">
-    <link rel="stylesheet" href="../public/assets/css/nice-select.css">
-    <link rel="stylesheet" href="../public/assets/css/nouislider.min.css">
-    <link rel="stylesheet" href="../public/assets/css/ion.rangeSlider.css" />
-    <link rel="stylesheet" href="../public/assets/css/ion.rangeSlider.skinFlat.css" />
-    <link rel="stylesheet" href="../public/assets/css/magnific-popup.css">
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    
     <link rel="stylesheet" href="../public/assets/css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js" integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK" crossorigin="anonymous"></script>
+    
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
-
-
-
-
-    <style>
-        /* Couleurs définies précédemment */
-        body {
-            background-color: #333333;
-            color: #f8f8f8;
-            font-family: 'Merriweather', serif;
-        }
-
-        h1,
-        h2,
-        h3 {
-            color: #d4af37;
-            font-family: 'Cinzel', serif;
-        }
-
-        a {
-            color: #800020;
-            font-family: 'Raleway', sans-serif;
-        }
-
-        a:hover {
-            color: #d3b8ae;
-        }
-
-        .product-card {
-            background-color: #4a4a4a;
-            border: 1px solid #5d4037;
-            color: #f8f8f8;
-            padding: 20px;
-            margin: 10px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .product-card h4,
-        h6 {
-            color: #d4af37;
-            font-family: 'Cinzel', serif;
-        }
-
-        .product-card .price {
-            color: #d3b8ae;
-            font-family: 'Raleway', sans-serif;
-        }
-
-        .button {
-            background-color: #800020;
-            color: #f8f8f8;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-family: 'Raleway', sans-serif;
-        }
-
-        .button:hover {
-            background-color: #5d4037;
-        }
-
-        .banner {
-            background: rgb(36, 36, 36);
-            /* Charbon */
-            background: linear-gradient(90deg, rgba(36, 36, 36, 1) 0%, rgba(60, 60, 60, 1) 35%, rgba(112, 128, 144, 1) 100%);
-            /* Gradient Charbon à Ardoise Grise */
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-position: center;
-            color: #f8f8f8;
-            /* Couleur du texte */
-            font-family: 'Merriweather', serif;
-
-        }
-
-        .single-product img {
-            width: 100%;
-            height: 272px;
-        }
-
-        .header_area .navbar .nav .nav-item:hover .nav-link,
-        .header_area .navbar .nav .nav-item.active .nav-link,
-        .sidebar-categories .main-nav-list a:hover {
-            color: #d4af37;
-
-        }
-
-        .header_area .navbar .nav .nav-item.submenu ul .nav-item:hover .nav-link {
-            background: #d4af37;
-        }
-
-        .sidebar-categories .head,
-        .filter-bar {
-            background: #d4af37;
-        }
-
-        ul.main-categories li a {
-            text-transform: capitalize;
-        }
-
-        .current,
-        .nice-select .option:hover,
-        .nice-select .option.focus,
-        .nice-select .option.selected.focus,
-        .nice-select .option:hover,
-        .nice-select .option.selected.focus {
-            color: #333333;
-
-        }
-
-        .gradient-bg,
-        .primary-btn,
-        .add-bag .add-btn,
-        .single-product .product-details .prd-bottom .social-info span::after,
-        .grid-btn:hover,
-        .list-btn:hover,
-        .grid-btn.active,
-        .list-btn.active,
-        .pagination a.active,
-        .pagination a:hover,
-        .s_Product_carousel .owl-dots div.active,
-        .s_product_text .card_area .icon_btn::after,
-        .product_description_area .nav.nav-tabs li a.active,
-        .blog-pagination .page-item.active .page-link,
-        .single-footer-widget .click-btn {
-            background: #d4af37;
-        }
-
-        .single-product .product-details .prd-bottom .social-info .hover-text {
-            color: white;
-        }
-
-        .nice-select .list:hover .option:not(:hover) {
-            color: black;
-        }
-    </style>
 </head>
 
-<body>
 
+<body>
     <!-- Start Header Area -->
-    <header class="header_area sticky-header">
-        <div class="main_menu">
-            <nav class="navbar navbar-expand-lg navbar-light main_box">
-                <div class="container">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt=""></a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav menu_nav ml-auto">
-                            <li class="nav-item active"><a class="nav-link" href="index.php">Home</a></li>
-                            <li class="nav-item submenu dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
-                                    aria-haspopup="true" aria-expanded="false">Shop</a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="product">All products</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="category">All categories</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="single-product">Product Checkout</a>
-                                    </li>
-                                    <li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item submenu dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
-                                    aria-haspopup="true" aria-expanded="false">Blog</a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="blog">Blog</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item submenu dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
-                                    aria-haspopup="true" aria-expanded="false">Pages</a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="tracking.html">Tracking</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="nav-item"><a href="#" class="cart"><span class="ti-bag"></span></a></li>
-                            <li class="nav-item">
-                                <button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
-        <div class="search_input" id="search_input_box">
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-light main_box">
             <div class="container">
-                <form class="d-flex justify-content-between">
-                    <input type="text" class="form-control" id="search_input" placeholder="Search Here">
-                    <button type="submit" class="btn"></button>
-                    <span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
-                </form>
+                <!-- Logo -->
+                <!-- <a class="navbar-brand logo_h" href="index.html">
+                    <img src="img/logo.png" alt="">
+                </a> -->
+
+                <!-- Toggle button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navigation links -->
+                <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 menu_nav">
+                        <li class="nav-item active"><a class="nav-link" href="index.php">Home</a></li>
+
+                        <!-- Shop dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="shopDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+                            <ul class="dropdown-menu" aria-labelledby="shopDropdown">
+                                <li><a class="dropdown-item" href="product">All products</a></li>
+                                <li><a class="dropdown-item" href="category">All categories</a></li>
+                                <li><a class="dropdown-item" href="single-product">Product Checkout</a></li>
+                                <li><a class="dropdown-item" href="cart.html">Shopping Cart</a></li>
+                                <li><a class="dropdown-item" href="confirmation.html">Confirmation</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Blog dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="blogDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
+                            <ul class="dropdown-menu" aria-labelledby="blogDropdown">
+                                <li><a class="dropdown-item" href="blog">Blog</a></li>
+                                <li><a class="dropdown-item" href="single-blog.html">Blog Details</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
+        </nav>
     </header>
     <!-- End Header Area -->
+
 
     <?php echo $content; ?>
     <!-- start footer Area -->
@@ -337,23 +165,6 @@
         </div>
     </footer>
     <!-- End footer Area -->
-
-    <script src="../public/assets/js/vendor/jquery-2.2.4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
-        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
-        crossorigin="anonymous"></script>
-    <script src="../public/assets/js/vendor/bootstrap.min.js"></script>
-    <script src="../public/assets/js/jquery.ajaxchimp.min.js"></script>
-    <script src="../public/assets/js/jquery.nice-select.min.js"></script>
-    <script src="../public/assets/js/jquery.sticky.js"></script>
-    <script src="../public/assets/js/nouislider.min.js"></script>
-    <script src="../public/assets/js/countdown.js"></script>
-    <script src="../public/assets/js/jquery.magnific-popup.min.js"></script>
-    <script src="../public/assets/js/owl.carousel.min.js"></script>
-    <!--gmaps Js-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-    <script src="../public/assets/js/gmaps.min.js"></script>
-    <script src="../public/assets/js/main.js"></script>
 </body>
 
 </html>

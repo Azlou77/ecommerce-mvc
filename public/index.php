@@ -25,6 +25,9 @@ if ($url && $url == 'productFilteredByColor' && !empty($color)) {
 } elseif ($url && $url == 'product') {
 	$product = new ProductController();
 	$product->index();
+} elseif ($url && $url == 'cart') {
+	$product = new ProductController();
+	$product->getProductsFromCart();
 } elseif ($url == 'productDetail' && !empty($idProduct)) {
 	$product = new ProductController();
 	$product->getProduct($idProduct);
