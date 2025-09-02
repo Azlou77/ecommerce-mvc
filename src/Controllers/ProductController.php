@@ -1,7 +1,7 @@
 <?php
 
 namespace Ecommerce\Controllers;
-
+use Ecommerce\Controllers\Controller;
 use Ecommerce\Models\CategoryModel;
 use Ecommerce\Models\ProductModel;
 

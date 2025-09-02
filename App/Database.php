@@ -9,7 +9,7 @@ class Database
 {
     private $dsn = "mysql:dbname=ecommerce;host=localhost";
     private $username  = "root";
-    private $password = "";
+    private $password = "louis260701";
     private $connexion;
     private $option = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING);
     public function __construct()

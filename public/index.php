@@ -1,10 +1,10 @@
 <?php
 
-use Ecommerce\Controllers\BlogController;
 use Ecommerce\Controllers\CategoryController;
 use Ecommerce\Controllers\ContactController;
 use Ecommerce\Controllers\HomeController;
 use Ecommerce\Controllers\ProductController;
+
 
 require '../vendor/autoload.php';
 $url = $_GET['url'] ?? null;
@@ -37,10 +37,8 @@ if ($url && $url == 'productFilteredByColor' && !empty($color)) {
 } elseif ($url) {
 	$product = new ProductController();
 	$product->productsBySubcategory($url);
-} elseif ($url == null) {
-	$product = new ProductController();
-	$product->showLatestProducts();
-} else {
+} 
+ else {
 	$home = new HomeController();
 	$home->index();
 }
