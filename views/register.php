@@ -7,48 +7,37 @@ $password = $_POST['password'] ?? '';
 if ($email && empty($email)){
     echo "Veuillez rentrer une adresse email";
 
-} elseif (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    echo "L'adresse email '$email' est valide.";
-} else {
-    echo "L'adresse email '$email' n'est pas valide.";
-}
+} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $emailErr =  "L'adresse email    est invalide.";
+} 
 
 // Username sanitisation = no special char, no space, no number
 if ($username && empty($username)){
     echo "Veuillez rentrer un nom d'utilisateur";
 
 } elseif (!isValidUsername($username)){
-    echo "Le nom d'utilisateur ne doit pas contenir de chiffre, d'espace ou de caractère spécial.";
-} else {
-    echo "Nom d'utilisateur valide";
-}
+    $usernameErr = "Le nom d'utilisateur ne doit pas contenir de chiffre, d'espace ou de caractère spécial.";
+   
+} 
 
 function isValidUsername($username){
-     if (!preg_match('/[0-9]|\W|\s/', $username)){
+     if (preg_match('/[0-9]|\W|\s/', $username)){
         return false;
-    } else {
-        return true;
-
-    }
+    } 
 }
 
 // Password
 if ($password && empty($password)){
     echo "Veuillez rentrer une mot de passe";
+    
 } elseif (!isValidPassword($password)){
-    echo "Le mot de passe doit contenir au moins 12 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.";
-} else {
-    echo "Mot de passe valide";
-}
-
+    $passwordErr = "Le mot de passe doit contenir au moins 12 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.";
+} 
 // Password sanitisation = min 12 char, at least one upper, one lower, one number, one special char
 function isValidPassword($password){
-    if (strlen($password) < 12 && !preg_match('/[a-z]|[A-Z]/ | [0-9] | \W /', '$password')){
+    if (strlen($password) < 12 && preg_match('/[a-z]|[A-Z]/ | [0-9] | \W /', '$password')){
         return false;
-    } else {
-        return true;
-
-    }
+    } 
 }
 
 ?>
@@ -128,15 +117,18 @@ p {
         <div>
             <label for="email">Adresse e-mail:</label>
             <input type="email" id="email" name="email" required>
+            <span class="error"><?php echo $emailErr;?></span>
         </div>
         <div>
             <label for="username">Nom d'utilisateur:</label>
             <input type="text" id="username" name="username" required>
+            <span class="error"><?php echo $usernameErr;?></span>
         </div>
 
         <div>
             <label for="password">Mot de passe:</label>
             <input type="password" id="password" name="password" required>
+            <span class="error"><?php echo $passwordErr;?></span>
         </div>
 
         <div>
