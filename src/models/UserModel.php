@@ -47,7 +47,7 @@ class UserModel
 
 
     // Password sanitisation = min 12 char, at least one upper, one lower, one number, one special char
-    function isValidPassword($password){
+    public function isValidPassword($password){
         $password = $_POST['password'] ?? '';
         $passwordErr = $_POST[''] ?? '';
         if ($password && empty($password)){
@@ -60,9 +60,23 @@ class UserModel
         }
     }
 
-    function isFormValid($email, $username, $password){
+    public function isFormValid($email, $username, $password){
         if ($_SERVER["REQUEST_METHOD"] == "POST" && $this->isValidPassword($password) && $this->isValidUsername($username) && $this->isValidEmail($email)){
             return true;
+        }
+    }
+
+    public function register($email, $username, $password){
+        
+        if ($this->isFormValid($email, $username, $password)){
+            $query = "INSERT INTO users (email, username, password) VALUES (:email, :username, :password)";
+            $params = [
+                ':email' => $email,
+                ':username' => $username,
+                ':password' => password_hash($password, PASSWORD_BCRYPT)
+            ];
+            return $this->connexion->query($query, $params)->fetch(PDO::FETCH_ASSOC);
+
         }
     }
 }
