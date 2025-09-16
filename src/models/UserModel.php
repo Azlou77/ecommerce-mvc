@@ -61,21 +61,22 @@ class UserModel
     }
 
     public function isFormValid($email, $username, $password){
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && $this->isValidPassword($password) && $this->isValidUsername($username) && $this->isValidEmail($email)){
+        if ($_SERVER["REQUEST_METHOD"] === "POST" && $this->isValidPassword($password) && $this->isValidUsername($username) && $this->isValidEmail($email)){
             return true;
         }
     }
 
     public function register($email, $username, $password){
         
-        if ($this->isFormValid($email, $username, $password)){
+        if ($this->isFormValid($email, $username, password: $password)){
             $query = "INSERT INTO users (email, username, password) VALUES (:email, :username, :password)";
             $params = [
                 ':email' => $email,
                 ':username' => $username,
                 ':password' => password_hash($password, PASSWORD_BCRYPT)
             ];
-            return $this->connexion->query($query, $params)->fetch(PDO::FETCH_ASSOC);
+            return $this->connexion->query($query, $params);
+
 
         }
     }
