@@ -73,12 +73,17 @@ class UserModel
             $params = [
                 ':email' => $email,
                 ':username' => $username,
-                ':password' => password_hash($password, PASSWORD_BCRYPT)
+                ':password' => $password = password_hash(password:  $password, PASSWORD_BCRYPT)
             ];
             return $this->connexion->query($query, $params);
 
-
         }
+    }
+
+    public function login($email, $password){
+        if 
+     
+        
     }
 }
 

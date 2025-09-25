@@ -16,4 +16,9 @@ class UserController extends Controller{
         $user = $this->userModel->register($email, $username, $password);
         $this->render('register', compact('user'));
     }
+
+    public function loginUser($email, $password){
+        $user = $this->userModel->login($email, $password);
+        $this->render('login', compact('user'));
+    }
 }
