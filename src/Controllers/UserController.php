@@ -12,13 +12,14 @@ class UserController extends Controller{
         $this->userModel = new UserModel();
     }
 
-    public function registerUser($email, $username, $password){
+    public function registerUser($email, $username, $password): void{
         $user = $this->userModel->register($email, $username, $password);
         $this->render('register', compact('user'));
     }
 
-    public function loginUser($email, $password){
+    /*public function loginUser($email, $password){
         $user = $this->userModel->login($email, $password);
         $this->render('login', compact('user'));
     }
+        */
 }

@@ -68,7 +68,7 @@ p {
 
 <div class="login-container">
     <h2>Inscription</h2>
-    <form action="" method="post">
+    <form action="register.php" method="POST">
         <div>
             <label for="email">Adresse e-mail:</label>
             <input type="email" id="email" name="email" required>

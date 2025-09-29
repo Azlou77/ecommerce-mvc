@@ -4,6 +4,7 @@ use Ecommerce\Controllers\CategoryController;
 use Ecommerce\Controllers\ContactController;
 use Ecommerce\Controllers\HomeController;
 use Ecommerce\Controllers\ProductController;
+use Ecommerce\Controllers\UserController;
 
 
 require '../vendor/autoload.php';
@@ -37,7 +38,10 @@ if ($url && $url == 'productFilteredByColor' && !empty($color)) {
 } elseif ($url) {
 	$product = new ProductController();
 	$product->productsBySubcategory($url);
-} 
+} elseif ( $url && $url == 'register') {
+	$user = new UserController();
+	$user->registerUser($email, $username, $password);
+}
  else {
 	$home = new HomeController();
 	$home->index();
