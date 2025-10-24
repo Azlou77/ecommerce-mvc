@@ -13,14 +13,7 @@
             font-family: 'Cinzel', serif;
         }
 
-        a {
-            color: #800020;
-            font-family: 'Raleway', sans-serif;
-        }
-
-        a:hover {
-            color: #d3b8ae;
-        }
+      
 
         .product-card {
             background-color: #4a4a4a;
@@ -75,16 +68,8 @@
             height: 272px;
         }
 
-        .header .navbar .nav .nav-item:hover .nav-link,
-        .header .navbar .nav .nav-item.active .nav-link,
-        .sidebar-categories .main-nav-list a:hover {
+        .nav-link {
             color: #d4af37;
-
-
-        }
-
-        .header .navbar .nav .nav-item.submenu ul .nav-item:hover .nav-link {
-            background: #d4af37;
             
         }
 

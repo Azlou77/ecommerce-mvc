@@ -31,9 +31,6 @@ class ProductModel
     }
 
 
-
-
-
     public function getProductsBySubCategory($subCategoryName)
     {
         $query = "SELECT product.*, subcategory.subcategory_name FROM product 

@@ -31,7 +31,6 @@
 
 
 <!-- start product Area -->
-<!-- start product Area -->
 <section class="section_gap">
     <!-- single product slide -->
     <div class="single-product-slider">
@@ -73,7 +72,4 @@
         </div>
     </div>
 </section>
-<!-- end product Area -->
-
-
 <!-- end product Area -->

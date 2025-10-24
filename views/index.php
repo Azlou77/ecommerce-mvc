@@ -30,7 +30,7 @@
 
 
 
-<!-- start product Area -->
+
 <!-- start product Area -->
 <section class="section_gap">
     <!-- single product slide -->
@@ -44,15 +44,15 @@
                 </div>
             </div>
             <div class="row">
-                <?php foreach ($tab_productsBySubCategory as $productsBySubCategory) : ?>
+                <?php foreach ($tab_latestProducts as $latestProducts) : ?>
                     <!-- single product -->
                     <div class="col-lg-3 col-md-6">
                         <div class="single-product">
-                            <img class="img-fluid" src="../public/assets/img/sartoriale/<?php echo $productsBySubCategory['img'] . '.jpg'; ?>" alt="">
+                            <img class="img-fluid" src="../public/assets/img/sartoriale/<?php echo $latestProducts['img'] . '.jpg'; ?>" alt="">
                             <div class="product-details">
-                                <h6><?php echo $productsBySubCategory['product_name']; ?></h6>
+                                <h6><?php echo $latestProducts['product_name']; ?></h6>
                                 <div class="price">
-                                    <h6 style="font-size: 16px;"><?php echo $productsBySubCategory['price']; ?>$</h6>
+                                    <h6 style="font-size: 16px;"><?php echo $latestProducts['price']; ?>$</h6>
 
                                 </div>
                                 <div class="prd-bottom">
@@ -73,7 +73,4 @@
         </div>
     </div>
 </section>
-<!-- end product Area -->
-
-
 <!-- end product Area -->

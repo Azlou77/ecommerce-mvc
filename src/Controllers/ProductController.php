@@ -48,11 +48,18 @@ class ProductController extends Controller
         $tab_productsBySubCategory = $this->getProductsBySubCategory($subCategoryName);
         $tab_subcategories  = $this->categoryModel->getAllSubcategories();
         $tab_categories = $this->categoryModel->getAllCategories();
-        $this->render('productSubByCategory', compact('tab_productsBySubCategory', 'tab_categories', 'tab_subcategories'));
+        $this->render('productSubByCategory', compact('tab_productsBySubCategory', 'tab_subcategories', 'tab_categories'));
     }
 
+    public function showLatestProducts()
+    {
+        $tab_latestProducts = $this->productModel->getProductsBySubcategory('derniers');
+        $this->render('index', compact('tab_latestProducts'));
+    }
    
 
+   
+    
     private function getFilteredProductsByColor($color)
     {
         return $this->productModel->getFilteredProductsByColor($color);
@@ -83,9 +90,5 @@ class ProductController extends Controller
             $this->render('productFilteredByPriceRange', compact('products', 'tab_subcategories', 'tab_categories'));
         }
     }
-    public function showLatestProducts()
-    {
-        $tab_productsBySubCategory = $this->productModel->getProductsBySubcategory('derniers');
-        $this->render('home', compact('tab_productsBySubCategory'));
-    }
+   
 }
