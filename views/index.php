@@ -15,7 +15,7 @@
                         </div>
                         <div class="col-lg-7">
                             <div class="banner-img">
-                                <img class="img-fluid" src="../public/assets/img/sartoriale/peaky-blinders-banner.jpeg" alt="">
+                                <img class="img-fluid" src="assets/img/sartoriale/peaky-blinders-banner.jpeg" alt="">
                             </div>
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                     <!-- single product -->
                     <div class="col-lg-3 col-md-6">
                         <div class="single-product">
-                            <img class="img-fluid" src="../public/assets/img/sartoriale/<?php echo $latestProducts['img'] . '.jpg'; ?>" alt="">
+                            <img class="img-fluid" src="assets/img/sartoriale/<?php echo $latestProducts['img'] . '.jpg'; ?>" alt="">
                             <div class="product-details">
                                 <h6><?php echo $latestProducts['product_name']; ?></h6>
                                 <div class="price">

@@ -10,7 +10,7 @@
                         <?php echo $category['category_name']; ?>
                     </a>
 
-                    <ul  id="category<?php echo $category['id_category']; ?>" data-toggle="collapse"
+                    <ul id="category<?php echo $category['id_category']; ?>" data-toggle="collapse"
                         aria-expanded="false" aria-controls="category<?php echo $category['id_category']; ?>">
                         <?php foreach ($tab_subcategories as $subCategory): ?>
                             <?php if ($subCategory['cat'] == $category['id_category']): ?>
@@ -87,6 +87,4 @@
 
         </div>
     </div>
-</div>
-
 </div>
