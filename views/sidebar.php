@@ -4,8 +4,8 @@
         <ul class="main-categories">
             <?php foreach ($tab_categories as $category): ?>
                 <li class="main-nav-list">
-                    <a data-toggle="collapse" href="#category<?php echo $category['id_category']; ?>" aria-expanded="false"
-                        aria-controls="category<?php echo $category['id_category']; ?>">
+                    <a data-toggle="collapse" href="<?php echo $category['category_name']; ?>" aria-expanded="false"
+                        aria-controls="<?php echo $category['category_name']; ?>">
                         <span class="lnr lnr-arrow-right"></span>
                         <?php echo $category['category_name']; ?>
                     </a>

@@ -13,6 +13,8 @@ $url = $_GET['url'] ?? null;
 $color = $_GET['color'] ?? '';
 $priceRange = $_GET['priceRange'] ?? '';
 $idProduct = $_GET['idProduct'] ?? null;
+$categoryName = $_GET['categoryName'] ?? null;
+
 
 
 if ($url && $url == 'productFilteredByColor' && !empty($color)) {
@@ -38,14 +40,16 @@ if ($url && $url == 'productFilteredByColor' && !empty($color)) {
 } elseif ($url == 'productDetail' && !empty($idProduct)) {
 	$product = new ProductController();
 	$product->getProduct($idProduct);
+	
 } elseif ($url && $url == 'category') {
 	$category = new CategoryController();
 	$category->index();
 
-}   elseif ($url) {
-	$product = new ProductController();
-	$product->productsByCategory($categoryName);
 
+} elseif ($url) {
+    // Si aucune route spécifique, on essaie de traiter $url comme une catégorie
+    $product = new ProductController();
+    $product->productsByCategory($url);
 
 } elseif ( $url && $url == 'register') {
 	$user = new UserController();
