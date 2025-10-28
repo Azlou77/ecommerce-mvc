@@ -23,6 +23,13 @@ class CategoryModel
         return $this->connexion->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getOneCategory($categoryName)
+    {
+        $query = "SELECT id_category, category_name FROM category WHERE category_name = :categoryName";
+        $params = [':categoryName' => $categoryName];
+        return $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function getAllSubcategories()
     {
         $query = "SELECT subcategory.id_subcategory, subcategory.subcategory_name, subcategory.cat, category.category_name 

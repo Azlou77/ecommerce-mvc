@@ -19,6 +19,8 @@ class CategoryController extends Controller
         return $this->categoryModel->getAllCategories();
     }
 
+
+   
     private function getAllSubcategories()
     {
         return $this->categoryModel->getAllSubcategories();
@@ -28,6 +30,7 @@ class CategoryController extends Controller
     {
         $tab_categories = $this->getAllCategories();
         $tab_subcategories = $this->getAllSubcategories();
-        $this->render('category', params: compact('tab_categories', 'tab_subcategories'));
+        $this->render('sidebar', params: compact('tab_categories', 'tab_subcategories'));
     }
+
 }
