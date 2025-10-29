@@ -45,8 +45,8 @@ class ProductModel
     {
         $query = "SELECT product.*, category.category_name FROM product 
                   INNER JOIN category ON product.cat = category.id_category 
-                  WHERE category.category_name = :cat_name";
-        $params = [':cat_name' => $categoryName];
+                  WHERE category.category_name = :categoryName";
+        $params = [':categoryName' => $categoryName];
         return $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
     

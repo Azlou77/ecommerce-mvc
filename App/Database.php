@@ -21,7 +21,6 @@ class Database
     {
         if ($params) {
             $request = $this->connexion->prepare($query);
-            $request->bindValue("", $params[""]);
             $request->execute($params);
         } else {
             $request = $this->connexion->query($query);

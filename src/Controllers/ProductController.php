@@ -60,7 +60,7 @@ class ProductController extends Controller
         $tab_productsByCategory = $this->getProductsByCategory($categoryName);
         $tab_subcategories  = $this->categoryModel->getAllSubcategories();
         $tab_categories = $this->categoryModel->getAllCategories();
-        $this->render('productByCategory', compact('tab_productsByCategory', 'tab_subcategories', 'tab_categories'));
+        $this->render('productsByCategory', compact('tab_productsByCategory', 'tab_subcategories', 'tab_categories'));
     }
 
     public function showLatestProducts()

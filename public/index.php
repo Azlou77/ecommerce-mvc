@@ -1,5 +1,6 @@
 <?php
-
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 use Ecommerce\Controllers\CategoryController;
 use Ecommerce\Controllers\ContactController;
 use Ecommerce\Controllers\HomeController;
@@ -9,11 +10,11 @@ use Ecommerce\Controllers\UserController;
 
 
 require '../vendor/autoload.php';
-$url = $_GET['url'] ?? null;
+$url = $_GET['url'] ?? '';
 $color = $_GET['color'] ?? '';
 $priceRange = $_GET['priceRange'] ?? '';
 $idProduct = $_GET['idProduct'] ?? null;
-$categoryName = $_GET['categoryName'] ?? null;
+$categoryName = $_GET['categoryName'] ?? '';
 
 
 
@@ -44,16 +45,16 @@ if ($url && $url == 'productFilteredByColor' && !empty($color)) {
 } elseif ($url && $url == 'category') {
 	$category = new CategoryController();
 	$category->index();
+}
 
+elseif ( $url && $url == 'register') {
+	$user = new UserController();
+	$user->registerUser($email, $username, $password);
 
-} elseif ($url) {
-    // Si aucune route spécifique, on essaie de traiter $url comme une catégorie
+}  elseif ($url) {
     $product = new ProductController();
     $product->productsByCategory($url);
 
-} elseif ( $url && $url == 'register') {
-	$user = new UserController();
-	$user->registerUser($email, $username, $password);
 	
 } else {
 	$home = new HomeController();
