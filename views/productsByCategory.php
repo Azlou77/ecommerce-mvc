@@ -48,7 +48,7 @@
                     <?php foreach ($tab_productsByCategory as $productsByCategory) : ?>
                         <div class="col-lg-4 col-md-6">
                             <div class="single-product">
-                                <img class="img-fluid" src="assets/img/sartoriale/<?php echo $productsByCategory['img'] . '.jpg'; ?>" style="width:255px;  height:271px">
+                                <img class="img-fluid" src="assets/img/sartoriale/<?php echo $productsByCategory['img'] . '.jpg'; ?>" style="width:350px;  height:200px;" alt="">
                                 <div class="product-details">
                                     <h6><?php echo $productsByCategory['product_name'] ?></h6>
                                     <div class="price">
