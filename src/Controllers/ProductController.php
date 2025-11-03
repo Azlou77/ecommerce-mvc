@@ -1,9 +1,10 @@
 <?php
 
 namespace Ecommerce\Controllers;
-use Ecommerce\Controllers\Controller;
-use Ecommerce\Models\CategoryModel;
+use Exception;
 use Ecommerce\Models\ProductModel;
+use Ecommerce\Models\CategoryModel;
+use Ecommerce\Controllers\Controller;
 
 class ProductController extends Controller
 {
@@ -25,11 +26,7 @@ class ProductController extends Controller
         $this->render('product', compact('tab_products', 'tab_categories', 'tab_subcategories'));
     }
 
-    public function getProductsFromCart()
-    {
-        $tab_productsCart = $this->productModel->getProductsFromCart();
-        $this->render('cart', compact('tab_productsCart'));
-    }
+   
 
     public function getProduct($idProduct)
     {
@@ -38,24 +35,13 @@ class ProductController extends Controller
     }
 
 
-    private function getProductsBySubCategory($subCategoryName)
-    {
-        return $this->productModel->getProductsBySubCategory($subCategoryName);
-    }
-
+   
     private function getProductsByCategory($categoryName)
     {
         return $this->productModel->getProductsByCategory($categoryName);
     }
 
-    public function productsBySubCategory($subCategoryName)
-    {
-        $tab_productsBySubCategory = $this->getProductsBySubCategory($subCategoryName);
-        $tab_subcategories  = $this->categoryModel->getAllSubcategories();
-        $tab_categories = $this->categoryModel->getAllCategories();
-        $this->render('productSubByCategory', compact('tab_productsBySubCategory', 'tab_subcategories', 'tab_categories'));
-    }
-    public function productsByCategory($categoryName)
+     public function productsByCategory($categoryName)
     {
         $tab_productsByCategory = $this->getProductsByCategory($categoryName);
         $tab_subcategories  = $this->categoryModel->getAllSubcategories();
@@ -63,15 +49,22 @@ class ProductController extends Controller
         $this->render('productsByCategory', compact('tab_productsByCategory', 'tab_subcategories', 'tab_categories'));
     }
 
-    public function showLatestProducts()
+    private function getProductsBySubCategory($categoryName, $subCategoryName)
     {
-        $tab_latestProducts = $this->productModel->getProductsBySubcategory('derniers');
-        $this->render('index', compact('tab_latestProducts'));
+        return $this->productModel->getProductsBySubCategory($categoryName, $subCategoryName);
     }
-   
 
-   
+    public function productsBySubCategory($categoryName, $subCategoryName)
+    {
+        $tab_productsBySubCategory = $this->getProductsBySubCategory($categoryName, $subCategoryName);
+        $tab_subcategories = $this->categoryModel->getAllSubcategories();
+        $tab_categories = $this->categoryModel->getAllCategories();
+        
+        $this->render('productsSubByCategory', compact('tab_productsBySubCategory', 'tab_subcategories', 'tab_categories'));
+    }
+
     
+
     private function getFilteredProductsByColor($color)
     {
         return $this->productModel->getFilteredProductsByColor($color);

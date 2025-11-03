@@ -16,10 +16,7 @@ $url = $_GET['url'] ?? '';
 $params = $url ? explode('/', $url) : [];
 
 
-$idProduct = $_GET['idProduct'] ?? null;
-$categoryName = $_GET['categoryName'] ?? '';
-
-http://ecommerce.local/
+// http://ecommerce.local/
 if (empty ($params)) {
 	(new HomeController)->index();
 	
@@ -36,24 +33,23 @@ if ($url && $params[0] != '') {
 		case 'productDetail':
 			(new ProductController)->getProduct($idProduct);
 			break;
+	
 		
-		
-
-		default:
-			http_response_code(404);
-			echo "Page not found";
+	}  
+	$product = new ProductController;
+	$product->productsByCategory($url);
+	
+	
+	// Si 2 paramètres dans l'url
+	if (count($params) == 2) {
+		$categoryName = $params[0];
+		$subCategoryName = $params[1];
+		$subCategoryController = new ProductController;
+		$subCategoryController->productsBySubCategory($categoryName, $subCategoryName);
 	}
 }
 
-// Produits d'une catégorie: ecommerce.local/shoes
-if (count($params) === 1) {
-    $categorySlug = $params[0];
-    
-    (new ProductController)->productsByCategory($categorySlug);
-    exit;
-}
-
-
+   
 
 
 

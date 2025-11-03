@@ -30,17 +30,6 @@ class ProductModel
         return $this->connexion->query("SELECT product_name, price, img FROM product")->fetchAll(PDO::FETCH_ASSOC);
     }
 
-
-    public function getProductsBySubCategory($subCategoryName)
-    {
-        $query = "SELECT product.*, subcategory.subcategory_name FROM product 
-                  INNER JOIN subcategory ON product.subcat = subcategory.id_subcategory 
-
-                  WHERE subcategory.subcategory_name = :subcat_name";
-        $params = [':subcat_name' => $subCategoryName];
-        return $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
-    }
-
     public function getProductsByCategory($categoryName)
     {
         $query = "SELECT product.*, category.category_name FROM product 
@@ -49,7 +38,21 @@ class ProductModel
         $params = [':categoryName' => $categoryName];
         return $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
-    
+    public function getProductsBySubCategory($categoryName, $subCategoryName)
+    {
+        $query = "SELECT product.*, 
+                    subcategory.subcategory_name, 
+                    subcategory.id_subcategory, 
+                    category.category_name, 
+                    category.id_category 
+                    FROM product 
+                    INNER JOIN subcategory ON product.subcat = subcategory.cat 
+                    INNER JOIN category ON subcategory.cat = category.id_category WHERE subcategory.subcategory_name = :subCategoryName";
+
+        $params = [':subCategoryName' => $subCategoryName];
+
+        return $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
+    }
 
 
     public function getAllCategories()
@@ -58,10 +61,10 @@ class ProductModel
         return $this->connexion->query("SELECT * FROM category")->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    
+
     public function getFilteredProductsByColor($color)
     {
-        
+
         $query = "SELECT * FROM product WHERE color = :color";
         $params = [':color' => $color];
         return $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
@@ -75,7 +78,7 @@ class ProductModel
             ':priceMin' => $priceMin,
             ':priceMax' => $priceMax
         ];
-        return  $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
+        return $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
-    
+
 }

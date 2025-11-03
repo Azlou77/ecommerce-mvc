@@ -11,7 +11,7 @@
 <!-- End Banner Area -->
 <div class="container">
     <div class="row">
-        <?php include 'categoryFilter.php' ?>
+        <?php include 'sidebar.php' ?>
         <div class="col-xl-9 col-lg-8 col-md-7">
             <!-- Start Filter Bar -->
             <div class="filter-bar d-flex flex-wrap align-items-center">
