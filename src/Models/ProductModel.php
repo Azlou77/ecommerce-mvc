@@ -22,7 +22,7 @@ class ProductModel
     {
         $query = "SELECT * FROM product WHERE id_product = :idProduct";
         $params = [':idProduct' => $idProduct];
-        return $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
+        return $this->connexion->query($query, $params)->fetch(PDO::FETCH_ASSOC);
     }
 
     public function getProductsFromCart()

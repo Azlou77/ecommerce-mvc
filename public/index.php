@@ -26,7 +26,7 @@ switch ($params[0]) {
     
     case 'productDetail':
         $idProduct = $params[1] ?? null;
-        (new ProductController)->getProduct($idProduct);
+        (new ProductController)->productDetail($idProduct);
         exit;
     
     default:

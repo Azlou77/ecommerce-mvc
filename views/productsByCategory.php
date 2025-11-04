@@ -46,18 +46,18 @@
                                     <div class="price">
                                         <h6 style="font-size:16px;">$<?php echo $productsByCategory['price']; ?></h6>
                                     </div>
-                                    <!-- 
+
                                     <div class="prd-bottom">
-                                        <a href="<?php echo $productsByCategory['subcategory_name']; ?>" class="social-info">
+                                        <a href="/<?php echo $productsByCategory['subcategory_name']; ?>" class="social-info">
                                             <span class="ti-bag"></span>
                                             <p class="hover-text">add to bag</p>
                                         </a>
-                                        <a href="<?php echo $productsByCategory['subcategory_name']; ?>" class="social-info">
+                                        <a href="/productDetail/<?php echo $products['id_product']; ?>" class="social-info">
                                             <span class="lnr lnr-move"></span>
                                             <p class="hover-text">view more</p>
                                         </a>
                                     </div>
-                                        -->
+                                    
                                 </div>
                             </div>
                         </div>

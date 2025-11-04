@@ -27,10 +27,13 @@ class ProductController extends Controller
     }
 
    
-
-    public function getProduct($idProduct)
+    private function getProductDetail($idProduct)
     {
-        $product = $this->productModel->getOneProduct($idProduct);
+        return $this->productModel->getOneProduct($idProduct);
+    }
+    public function productDetail($idProduct)
+    {
+        $product = $this->getProductDetail($idProduct);
         $this->render('productDetail', compact('product'));
     }
 
