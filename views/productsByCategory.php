@@ -1,13 +1,6 @@
 <!-- Start Banner Area -->
-<section class="banner organic-breadcrumb">
-    <div class="container">
-        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
-            <div class="col-first">
-                <h1>Shop products</h1>
-            </div>
-        </div>
-    </div>
-</section>
+<h1 class="banner">All products</h1>
+
 <!-- End Banner Area -->
 <div class="container">
     <div class="row">
@@ -44,7 +37,6 @@
             <section class="lattest-product-area pb-40 category-list">
                 <div class="row">
                     <!-- single product -->
-                     
                     <?php foreach ($tab_productsByCategory as $productsByCategory) : ?>
                         <div class="col-lg-4 col-md-6">
                             <div class="single-product">
