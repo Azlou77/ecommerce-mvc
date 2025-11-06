@@ -29,14 +29,17 @@ switch ($params[0]) {
         (new ProductController)->productDetail($idProduct);
         exit;
     
+    
     default:
+        $categoryName = $params[0];
+        $subCategoryName = $params[1] ?? null;
         // Routes dynamiques pour catégories/sous-catégories
         if (count($params) == 1) {
             // Une seule partie : catégorie
-            (new ProductController)->productsByCategory($params[0]);
+            (new ProductController)->productsByCategory($categoryName);
         } elseif (count($params) == 2) {
             // Deux parties : catégorie/sous-catégorie
-            (new ProductController)->productsBySubCategory($params[1]);
+            (new ProductController)->productsBySubCategory($subCategoryName);
         } else {
             // URL invalide : afficher 404
             http_response_code(404);

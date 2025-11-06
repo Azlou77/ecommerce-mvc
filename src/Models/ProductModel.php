@@ -38,7 +38,7 @@ class ProductModel
         $params = [':categoryName' => $categoryName];
         return $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
-    public function getProductsBySubCategory($subCategoryName)
+     public function getProductsBySubCategory($subCategoryName)
     {
         $query = "SELECT product.*, 
                     subcategory.subcategory_name, 
@@ -53,6 +53,7 @@ class ProductModel
 
         return $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
+
 
 
     public function getAllCategories()

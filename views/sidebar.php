@@ -15,7 +15,7 @@
                         <?php foreach ($tab_subcategories as $subCategory): ?>
                             <?php if ($subCategory['cat'] == $category['id_category']): ?>
                                 <li class="main-nav-list child">
-                                    <a href="<?php echo $category['category_name'] . '/' . $subCategory['subcategory_name']; ?>">
+                                    <a href="/<?php echo $category['category_name'] . '/' . $subCategory['subcategory_name']; ?>">
                                         <?php echo $subCategory['subcategory_name']; ?>
                                     </a>
                                 </li>
