@@ -38,7 +38,7 @@ class ProductModel
         $params = [':categoryName' => $categoryName];
         return $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
-     public function getProductsBySubCategory($subCategoryName)
+    public function getProductsBySubCategory($subCategoryName)
     {
         $query = "SELECT product.*, 
                     subcategory.subcategory_name, 
@@ -46,8 +46,9 @@ class ProductModel
                     category.category_name, 
                     category.id_category 
                     FROM product 
-                    INNER JOIN subcategory ON product.subcat = subcategory.cat 
-                    INNER JOIN category ON subcategory.cat = category.id_category WHERE subcategory.subcategory_name = :subCategoryName";
+                    INNER JOIN subcategory ON product.subcat = subcategory.id_subcategory
+                    INNER JOIN category ON subcategory.cat = category.id_category 
+                    WHERE subcategory.subcategory_name = :subCategoryName";
 
         $params = [':subCategoryName' => $subCategoryName];
 

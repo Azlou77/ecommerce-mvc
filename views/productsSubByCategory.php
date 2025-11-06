@@ -48,7 +48,13 @@
                         <?php foreach ($tab_productsBySubCategory as $productsBySubCategory) : ?>
                             <div class="col-lg-4 col-md-6">
                                 <div class="single-product">
-                                    <img class="img-fluid" src="../assets/img/sartoriale/<?php echo $productsBySubCategory['img'] . '.jpg'; ?>" style="width:350px;  height:200px;" alt="">
+                                    <?php if (($productsBySubCategory['cat'] == 2)): ?>
+                                        <img class="img-fluid" src="../assets/img/sartoriale/<?php echo
+                                            $productsBySubCategory['img'] . '.jpg'; ?>" style="width:350px;  height:250px;" alt=""> 
+                                    <?php else: ?>
+                                        <img class="img-fluid" src="../assets/img/sartoriale/<?php echo
+                                            $productsBySubCategory['img'] . '.jpg'; ?>" style="width:350px;  height:200px;" alt=""> 
+                                     <?php endif; ?>
                                     <div class="product-details">
                                         <h6><?php echo $productsBySubCategory['product_name'] ?></h6>
                                         <div class="price">
