@@ -21,9 +21,10 @@ class ProductController extends Controller
     public function index()
     {
         $tab_products = $this->productModel->getAllProducts();
+        $tab_colors = $this->productModel->getAllColors();
         $tab_categories = $this->productModel->getAllCategories();
         $tab_subcategories = $this->categoryModel->getAllSubcategories();
-        $this->render('product', compact('tab_products', 'tab_categories', 'tab_subcategories'));
+        $this->render('products', compact('tab_products', 'tab_colors', 'tab_categories', 'tab_subcategories'));
     }
 
    
@@ -72,12 +73,12 @@ class ProductController extends Controller
         return $this->productModel->getFilteredProductsByColor($color);
     }
 
-    public function productFilteredByColor($color)
+    public function productsFilteredByColor($color)
     {
-        $products = $this->getFilteredProductsByColor($color);
+        $tab_productsByColor = $this->getFilteredProductsByColor($color);
         $tab_subcategories = $this->categoryModel->getAllSubcategories();
         $tab_categories = $this->categoryModel->getAllCategories();
-        $this->render('productFilteredByColor', compact('products', 'tab_subcategories', 'tab_categories'));
+        $this->render('productsFilteredByColor', compact('tab_productsByColor', 'tab_subcategories', 'tab_categories'));
     }
 
     private function getFilteredProductsByPriceRange($priceMin, $priceMax)

@@ -63,6 +63,11 @@ class ProductModel
         return $this->connexion->query("SELECT * FROM category")->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getAllColors()
+    {
+        return $this->connexion->query("SELECT  DISTINCT color FROM product")->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 
     public function getFilteredProductsByColor($color)
     {

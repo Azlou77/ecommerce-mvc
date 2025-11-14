@@ -40,7 +40,7 @@
                     <a class="nav-link dropdown-toggle" href="#" id="shopDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
                     <ul class="dropdown-menu" aria-labelledby="shopDropdown">
-                        <li><a class="dropdown-item" href="product">All products</a></li>
+                        <li><a class="dropdown-item" href="products">All products</a></li>
                         <li><a class="dropdown-item" href="category">All categories</a></li>
                         <li><a class="dropdown-item" href="single-product">Product Checkout</a></li>
                         <li><a class="dropdown-item" href="cart.html">Shopping Cart</a></li>

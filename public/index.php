@@ -1,4 +1,5 @@
 <?php
+
 use Ecommerce\Controllers\ContactController;
 use Ecommerce\Controllers\HomeController;
 use Ecommerce\Controllers\ProductController;
@@ -20,9 +21,12 @@ switch ($params[0]) {
         (new ContactController)->index();
         exit;
     
-    case 'product':
+    case 'products':
         (new ProductController)->index();
         exit;
+    
+    
+    
     
     case 'productDetail':
         $idProduct = $params[1] ?? null;
@@ -33,13 +37,22 @@ switch ($params[0]) {
     default:
         $categoryName = $params[0];
         $subCategoryName = $params[1] ?? null;
+        $color = $params[1] ?? null;
         // Routes dynamiques pour catégories/sous-catégories
         if (count($params) == 1) {
             // Une seule partie : catégorie
             (new ProductController)->productsByCategory($categoryName);
+        
         } elseif (count($params) == 2) {
             // Deux parties : catégorie/sous-catégorie
             (new ProductController)->productsBySubCategory($subCategoryName);
+        
+
+        } elseif (count($params) == 2) {
+        // Deux parties : catégorie?couleur=valeur
+        (new ProductController)->productsFilteredByColor($color);
+        
+
         } else {
             // URL invalide : afficher 404
             http_response_code(404);

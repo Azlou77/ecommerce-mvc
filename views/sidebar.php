@@ -25,66 +25,27 @@
                 </li>
             <?php endforeach; ?>
         </ul>
+
+       
         <div class="sidebar-filter mt-50">
             <div class="top-filter-head">Product Filters</div>
             <div class="common-filter">
                 <div class="head">Color</div>
-                <form id="colorForm" method="GET">
+                <form id="colorForm">
                     <ul>
+                        <?php foreach ($tab_colors as $colors) : ?>
                         <li class="filter-list">
-                            <input type="radio" id="black" name="color" value="black"
-                                onchange="setFormColorAction(this)">
-                            <label for="black">Black</label>
+                            <input type="radio">
+                            <label>
+                                <a href="/<?php echo $colors['category_name'] . '?' . 'color' . '=' .
+                             $colors['color']; ?>">
+                             </a><?php echo $colors['color']; ?>
+                             </label>
                         </li>
-                        <li class="filter-list">
-                            <input type="radio" id="blue" name="color" value="blue" onchange="setFormColorAction(this)">
-                            <label for="blue">Blue</label>
-                        </li>
-                        <li class="filter-list">
-                            <input type="radio" id="grey" name="color" value="grey" onchange="setFormColorAction(this)">
-                            <label for="grey">Grey</label>
-                        </li>
-
                     </ul>
                 </form>
             </div>
-
-            <script>
-                function setFormColorAction(element) {
-                    var color = element.value;
-                    window.location.href = 'index.php?url=productFilteredByColor&color=' + color;
-                }
-            </script>
-
-
-
-            <div class="common-filter">
-                <div class="head">Price range</div>
-                <form id="priceRangeForm" method="GET">
-                    <ul>
-                        <li class="filter-list">
-                            <input type="radio" name="priceRange" value="0-50" id="range1"
-                                onchange="setFormPriceRangeAction(this)">
-                            <label for="range1">0-50</label>
-                        </li>
-                        <li class="filter-list">
-                            <input type="radio" name="priceRange" value="50-300" id="range2"
-                                onchange="setFormPriceRangeAction(this)">
-                            <label for="range2">50-300</label>
-                        </li>
-                        <!-- Add more price ranges here if needed -->
-                    </ul>
-                </form>
-            </div>
-
-            <script>
-                function setFormPriceRangeAction(element) {
-                    var priceRange = element.value;
-                    window.location.href = 'index.php?url=productFilteredByPriceRange&priceRange=' + priceRange;
-                }
-            </script>
-
-
-        </div>
+              </div>    
+        <?php endforeach; ?>
     </div>
 </div>
