@@ -11,7 +11,12 @@
 <!-- End Banner Area -->
 <div class="container">
     <div class="row">
-        <?php include 'sidebar.php' ?>
+       <div class="col-xl-3 col-lg-4 col-md-5">
+			 <div class="sidebar-categories">
+				<?php include 'sidebar.php' ?>
+                <?php include 'sidebarFilter.php' ?>
+			 </div>
+		</div>
         <div class="col-xl-9 col-lg-8 col-md-7">
             <!-- Start Filter Bar -->
             <div class="filter-bar d-flex flex-wrap align-items-center">
@@ -44,21 +49,21 @@
             <section class="lattest-product-area pb-40 category-list">
                 <div class="row">
                     <!-- single product -->
-                    <?php foreach ($products as $product) : ?>
+                    <?php foreach ($tab_productsByColor as $productsByColor) : ?>
                         <div class="col-lg-4 col-md-6">
                             <div class="single-product">
-                                <img class="img-fluid" src="../public/assets/img/sartoriale/<?php echo $product['img'] . '.jpg'; ?>" style="width:255px;  height:271px">
+                                <img class="img-fluid" src="assets/img/sartoriale/<?php echo $productsByColor['img'] . '.jpg'; ?>" style="width:255px;  height:271px">
                                 <div class="product-details">
-                                    <h6><?php echo $product['product_name'] ?></h6>
+                                    <h6><?php echo $productsByColor['product_name'] ?></h6>
                                     <div class="price">
-                                        <h6 style="font-size:16px;">$<?php echo $product['price']; ?></h6>
+                                        <h6 style="font-size:16px;"><?php echo $productsByColor['price']; ?></h6>
                                     </div>
                                     <div class="prd-bottom">
-                                        <a href="<?php echo $product['product_name']; ?>" class="social-info">
+                                        <a href="<?php echo $productsByColor['product_name']; ?>" class="social-info">
                                             <span class="ti-bag"></span>
                                             <p class="hover-text">add to bag</p>
                                         </a>
-                                        <a href="<?php echo $product['product_name']; ?>" class="social-info">
+                                        <a href="<?php echo $productsByColor['product_name']; ?>" class="social-info">
                                             <span class="lnr lnr-move"></span>
                                             <p class="hover-text">view more</p>
                                         </a>

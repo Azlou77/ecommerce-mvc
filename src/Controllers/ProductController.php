@@ -21,10 +21,10 @@ class ProductController extends Controller
     public function index()
     {
         $tab_products = $this->productModel->getAllProducts();
-        $tab_colors = $this->productModel->getAllColors();
+       
         $tab_categories = $this->productModel->getAllCategories();
         $tab_subcategories = $this->categoryModel->getAllSubcategories();
-        $this->render('products', compact('tab_products', 'tab_colors', 'tab_categories', 'tab_subcategories'));
+        $this->render('products', compact('tab_products', 'tab_categories', 'tab_subcategories'));
     }
 
    
@@ -59,7 +59,7 @@ class ProductController extends Controller
         return $this->productModel->getProductsBySubCategory( $subCategoryName);
     }
 
-    public function productsBySubCategory( $subCategoryName)
+    public function productsBySubCategory($subCategoryName)
     {
         $tab_productsBySubCategory = $this->getProductsBySubCategory( $subCategoryName);
         $tab_colors = $this->productModel->getAllColors();
@@ -70,14 +70,14 @@ class ProductController extends Controller
 
     
 
-    private function getFilteredProductsByColor($color)
+    private function getFilteredProductsByColor($idColor)
     {
-        return $this->productModel->getFilteredProductsByColor($color);
+        return $this->productModel->getFilteredProductsByColor($idColor);
     }
 
-    public function productsFilteredByColor($color)
+    public function productsFilteredByColor($idColor)
     {
-        $tab_productsByColor = $this->getFilteredProductsByColor($color);
+        $tab_productsByColor = $this->getFilteredProductsByColor($idColor);
         $tab_colors = $this->productModel->getAllColors();
         $tab_subcategories = $this->categoryModel->getAllSubcategories();
         $tab_categories = $this->categoryModel->getAllCategories();
