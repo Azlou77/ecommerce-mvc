@@ -12,7 +12,13 @@
     <!-- End Banner Area -->
     <div class="container">
         <div class="row">
-            <?php include 'sidebar.php' ?>  
+            
+       	<div class="col-xl-3 col-lg-4 col-md-5">
+			 <div class="sidebar-categories">
+				<?php include 'sidebar.php' ?>
+                <?php include 'sidebarFilter.php' ?>
+			 </div>
+		</div>  
             <div class="col-xl-9 col-lg-8 col-md-7">
                 <!-- Start Filter Bar -->
                 <div class="filter-bar d-flex flex-wrap align-items-center">

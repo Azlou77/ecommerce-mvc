@@ -48,9 +48,10 @@ class ProductController extends Controller
      public function productsByCategory($categoryName)
     {
         $tab_productsByCategory = $this->getProductsByCategory($categoryName);
+        $tab_colors = $this->productModel->getAllColors();
         $tab_subcategories  = $this->categoryModel->getAllSubcategories();
         $tab_categories = $this->categoryModel->getAllCategories();
-        $this->render('productsByCategory', compact('tab_productsByCategory', 'tab_subcategories', 'tab_categories'));
+        $this->render('productsByCategory', compact('tab_productsByCategory', 'tab_colors','tab_subcategories', 'tab_categories'));
     }
 
     private function getProductsBySubCategory($subCategoryName)
@@ -61,9 +62,10 @@ class ProductController extends Controller
     public function productsBySubCategory( $subCategoryName)
     {
         $tab_productsBySubCategory = $this->getProductsBySubCategory( $subCategoryName);
+        $tab_colors = $this->productModel->getAllColors();
         $tab_subcategories  = $this->categoryModel->getAllSubcategories();
         $tab_categories = $this->categoryModel->getAllCategories();
-        $this->render('productsSubByCategory', compact('tab_productsBySubCategory', 'tab_subcategories', 'tab_categories'));
+        $this->render('productsSubByCategory', compact('tab_productsBySubCategory', 'tab_colors', 'tab_subcategories', 'tab_categories'));
     }
 
     
@@ -76,9 +78,10 @@ class ProductController extends Controller
     public function productsFilteredByColor($color)
     {
         $tab_productsByColor = $this->getFilteredProductsByColor($color);
+        $tab_colors = $this->productModel->getAllColors();
         $tab_subcategories = $this->categoryModel->getAllSubcategories();
         $tab_categories = $this->categoryModel->getAllCategories();
-        $this->render('productsFilteredByColor', compact('tab_productsByColor', 'tab_subcategories', 'tab_categories'));
+        $this->render('productsFilteredByColor', compact('tab_productsByColor', 'tab_colors', 'tab_subcategories', 'tab_categories'));
     }
 
     private function getFilteredProductsByPriceRange($priceMin, $priceMax)
