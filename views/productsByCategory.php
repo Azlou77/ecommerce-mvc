@@ -58,7 +58,7 @@
                                     </div>
 
                                     <div class="prd-bottom">
-                                        <a href="/<?php echo $productsByCategory['subcategory_name']; ?>" class="social-info">
+                                        <a href="/<?php echo $productsByCategory['category_name']; ?>"
                                             <span class="ti-bag"></span>
                                             <p class="hover-text">add to bag</p>
                                         </a>
