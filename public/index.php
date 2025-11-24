@@ -1,5 +1,6 @@
 <?php
-
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 use Ecommerce\Controllers\ContactController;
@@ -34,13 +35,13 @@ switch ($params[0]) {
         
     
         if (isset($_GET['color'])) {
-            $idColor = $_GET['color'];
-            (new ProductController)->productsFilteredByColor($idColor);
+            $colorName = $_GET['color'];
+            (new ProductController)->productsFilteredByColor($colorName);
             exit;
         }
         if (isset($_GET['size'])) {
-            $idSize = $_GET['size'];
-            (new ProductController)->productsFilteredBySize($idSize);
+            $sizeName = $_GET['size'];
+            (new ProductController)->productsFilteredBySize($sizeName);
                 exit;
         }   
 

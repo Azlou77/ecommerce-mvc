@@ -9,17 +9,25 @@
                 <li class="filter-list">
                     <input type="radio" 
                            name="color" 
-                           id="color_<?php echo $color['id_color']; ?>" 
-                           value="<?php echo $color['id_color']; ?>">
-                    <label for="color_<?php echo $color['id_color']; ?>">
-                        <a href="/<?php echo $category['category_name']; ?>?color=<?php echo $color['id_color']; ?>">
-                            <?php echo $color['color_name']; ?>
-                        </a>
+                           id="<?php echo $color['id_color']; ?>" 
+                           value="<?php echo $color['color_name']; ?>"
+                           onchange="setFormColorAction(this)">
+                           
+                    <label for="color_<?php echo $color['color_name']; ?>">
+                        <?php echo $color['color_name']; ?>
                     </label>
                 </li>
                 <?php endforeach; ?>
             </ul>
         </form>
+
+        <script>
+                function setFormColorAction(element) {
+                    var color = element.value;
+                    window.location.href = '/<?php echo $category['category_name']; ?>?color=' + color;
+                }
+        </script>
+
         <div class="head">Size</div>
         <form id="sizeForm">
             <ul>
@@ -27,16 +35,23 @@
                 <li class="filter-list">
                     <input type="radio" 
                            name="size" 
-                           id="size_<?php echo $size['id_size']; ?>" 
-                           value="<?php echo $size['id_size']; ?>">
-                    <label for="size_<?php echo $size['id_size']; ?>">
-                        <a href="/<?php echo $category['category_name']; ?>?size=<?php echo $size['id_size']; ?>">
-                            <?php echo $size['size_name']; ?>
-                        </a>
+                           id="<?php echo $size['id_size']; ?>" 
+                           value="<?php echo $size['size_name']; ?>"
+                           onchange="setFormSizeAction(this)">
+                    <label for="size_<?php echo $size['size_name']; ?>">
+                        <?php echo $size['size_name']; ?>
                     </label>
                 </li>
                 <?php endforeach; ?>
             </ul>
         </form>
+
+         <script>
+                function setFormSizeAction(element) {
+                    var size = element.value;
+                    window.location.href = '/<?php echo $category['category_name']; ?>?size=' + size;
+                }
+        </script>
+
     </div>
 </div>
