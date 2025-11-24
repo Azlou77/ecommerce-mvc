@@ -49,9 +49,10 @@ class ProductController extends Controller
     {
         $tab_productsByCategory = $this->getProductsByCategory($categoryName);
         $tab_colors = $this->productModel->getAllColors();
+        $tab_sizes = $this->productModel->getAllSizes();
         $tab_subcategories  = $this->categoryModel->getAllSubcategories();
         $tab_categories = $this->categoryModel->getAllCategories();
-        $this->render('productsByCategory', compact('tab_productsByCategory', 'tab_colors','tab_subcategories', 'tab_categories'));
+        $this->render('productsByCategory', compact('tab_productsByCategory', 'tab_colors', 'tab_sizes','tab_subcategories', 'tab_categories'));
     }
 
     private function getProductsBySubCategory($subCategoryName)
@@ -63,9 +64,10 @@ class ProductController extends Controller
     {
         $tab_productsBySubCategory = $this->getProductsBySubCategory( $subCategoryName);
         $tab_colors = $this->productModel->getAllColors();
+        $tab_sizes = $this->productModel->getAllSizes();
         $tab_subcategories  = $this->categoryModel->getAllSubcategories();
         $tab_categories = $this->categoryModel->getAllCategories();
-        $this->render('productsSubByCategory', compact('tab_productsBySubCategory', 'tab_colors', 'tab_subcategories', 'tab_categories'));
+        $this->render('productsSubByCategory', compact('tab_productsBySubCategory', 'tab_colors', 'tab_sizes', 'tab_subcategories', 'tab_categories'));
     }
 
     
@@ -79,9 +81,25 @@ class ProductController extends Controller
     {
         $tab_productsByColor = $this->getFilteredProductsByColor($idColor);
         $tab_colors = $this->productModel->getAllColors();
+        $tab_sizes = $this->productModel->getAllSizes();
         $tab_subcategories = $this->categoryModel->getAllSubcategories();
         $tab_categories = $this->categoryModel->getAllCategories();
         $this->render('productsFilteredByColor', compact('tab_productsByColor', 'tab_colors', 'tab_subcategories', 'tab_categories'));
+    }
+
+    private function getFilteredProductsBySize($idSize)
+    {
+        return $this->productModel->getFilteredProductsBySizes($idSize);
+    }
+
+    public function productsFilteredBySize($idSize)
+    {
+        $tab_productsBySize = $this->getFilteredProductsBySize($idSize);
+        $tab_sizes = $this->productModel->getAllSizes();
+        $tab_colors = $this->productModel->getAllColors();
+        $tab_subcategories = $this->categoryModel->getAllSubcategories();
+        $tab_categories = $this->categoryModel->getAllCategories();
+        $this->render('productsFilteredBySize', compact('tab_productsBySize', 'tab_sizes', 'tab_subcategories', 'tab_categories'));
     }
 
     private function getFilteredProductsByPriceRange($priceMin, $priceMax)

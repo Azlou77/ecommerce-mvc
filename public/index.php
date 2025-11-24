@@ -35,6 +35,12 @@ switch ($params[0]) {
             (new ProductController)->productsFilteredByColor($idColor);
             exit;
         }
+        if (isset($_GET['size'])) {
+            $idSize = $_GET['size'];
+            (new ProductController)->productsFilteredBySize($idSize);
+                exit;
+        }   
+
         
         // Routes dynamiques pour catégories/sous-catégories
         if (count($params) == 1) {

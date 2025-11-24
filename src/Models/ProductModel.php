@@ -81,6 +81,23 @@ class ProductModel
         $params = [':idColor' => $idColor];
         return $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
+
+      public function getAllSizes()
+    {
+        return $this->connexion->query("SELECT * FROM size")->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+     public function getFilteredProductsBySizes($idSize){
+        $query = "SELECT product.*,
+                    size.size_name,
+                    size.id_size
+                    FROM product
+                    INNER JOIN size ON product.size = size.id_size
+                    WHERE size.id_size = :idSize";
+        $params = [':idSize' => $idSize];
+        return $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
+     }
+
     
     
 
