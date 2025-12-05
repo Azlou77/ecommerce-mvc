@@ -13,8 +13,8 @@
     <div class="row">
        <div class="col-xl-3 col-lg-4 col-md-5">
 			 <div class="sidebar-categories">
-				<?php include 'sidebar.php' ?>
-                <?php include 'sidebarFilter.php' ?>
+				<?php include_once 'sidebar.php' ?>
+                <?php include_once 'sidebarFilter.php' ?>
 			 </div>
 		</div>
         <div class="col-xl-9 col-lg-8 col-md-7">

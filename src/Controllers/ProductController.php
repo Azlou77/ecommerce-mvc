@@ -72,14 +72,16 @@ class ProductController extends Controller
 
     
 
-    private function getFilteredProductsByColor($colorName)
+    private function getFilteredProductsByColor($color)
+
     {
-        return $this->productModel->getFilteredProductsByColor($colorName);
+       
+        return $this->productModel->getFilteredProductsByColor($color);
     }
 
-    public function productsFilteredByColor($colorName)
+    public function productsFilteredByColor($color)
     {
-        $tab_productsByColor = $this->getFilteredProductsByColor($colorName);
+        $tab_productsByColor = $this->getFilteredProductsByColor($color);
         $tab_colors = $this->productModel->getAllColors();
         $tab_sizes = $this->productModel->getAllSizes();
         $tab_subcategories = $this->categoryModel->getAllSubcategories();

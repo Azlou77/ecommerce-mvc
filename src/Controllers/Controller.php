@@ -11,5 +11,7 @@ class Controller
         include('../views/' . $view . '.php');
         $content = ob_get_clean();
         include('../views/template/template.php');
+
     }
 }
+

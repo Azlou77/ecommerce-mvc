@@ -1,8 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+
 use Ecommerce\Controllers\ContactController;
 use Ecommerce\Controllers\HomeController;
 use Ecommerce\Controllers\ProductController;
@@ -32,18 +31,30 @@ switch ($params[0]) {
         exit;
     default:
         $categoryName = $params[0];
+
+         if (isset($_GET['color'])) {
+                $color = $_GET['color'] ?? '';
+                $color_already_selected = explode(',', $color);
+               
+               if (count($color_already_selected) > 1) {
+                    
+                   foreach ($color_already_selected as $colorName) {
+                       (new ProductController)->productsFilteredByColor($colorName);
+                   }
+            
         
-    
-        if (isset($_GET['color'])) {
-            $colorName = $_GET['color'];
-            (new ProductController)->productsFilteredByColor($colorName);
-            exit;
+               } else {
+                   (new ProductController)->productsFilteredByColor($color);
+                   exit;
+               }
         }
+
         if (isset($_GET['size'])) {
             $sizeName = $_GET['size'];
             (new ProductController)->productsFilteredBySize($sizeName);
                 exit;
         }   
+       
 
         
         // Routes dynamiques pour catégories/sous-catégories

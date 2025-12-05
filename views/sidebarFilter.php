@@ -5,22 +5,20 @@
         <form id="colorForm">
             <ul>
                 <?php   
-
-                $selected_colors = isset($_GET['color']) ? (array)$_GET['color'] : [];
-
-                foreach ($tab_colors as $color): 
-                $isChecked = in_array($color['color_name'], $selected_colors) ? 'checked' : '';
+                $selectedColors = isset($_GET['color']) ? (array)$_GET['color'] : [];
+                foreach ($tab_colors as $colors): 
+                $isChecked = in_array($colors['color_name'], $selectedColors) ? 'checked' : '';
                 ?>
 
                 <li class="filter-list">
                     <input type="checkbox" 
                            name="color[]" 
-                           id="color_<?php echo $color['id_color']; ?>" 
-                           value="<?php echo $color['color_name']; ?>"
+                           id="color_<?php echo $colors['id_color']; ?>" 
+                           value="<?php echo $colors['color_name']; ?>"
                            <?php echo $isChecked; ?> >
                            
-                    <label for="color_<?php echo $color['color_name']; ?>">
-                        <?php echo $color['color_name']; ?>
+                    <label for="color_<?php echo $colors['color_name']; ?>">
+                        <?php echo $colors['color_name']; ?>
                     </label>
                 </li>
                 <?php endforeach; ?>
@@ -36,22 +34,20 @@
             
             var checkboxes = document.querySelectorAll('input[name="color[]"]:checked');
             var colors = [];
+         
+            var history = window.location.pathname.split('/');
+            var category = history[1];
             
-            checkboxes.forEach(function(checkbox) {
+            checkboxes.forEach((checkbox) => {
                 colors.push(checkbox.value);
             });
-            
-            
-            var url = '/<?php echo $category['category_name']; ?>';
-            if (colors.length > 0) {
-                url += '?color=' + colors.join('&color=');
-            }
-            
-            window.location.href = url;
+            var colorParam = colors.join(',');
+            var newUrl = '/' + category + '?color=' + colorParam;
+            window.location.href =
+                newUrl;
+
         }
         </script>
-
-        
 
     </div>
 </div>
