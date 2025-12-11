@@ -68,14 +68,14 @@ class ProductModel
         return $this->connexion->query("SELECT * FROM color")->fetchAll(PDO::FETCH_ASSOC);
     }
 
-
-    public function getFilteredProductsByColor($color)
+    public function getFilteredProductsByColor($idColor)
     {
         
-        $query = "SELECT product.*, color.color_name FROM product 
-                  INNER JOIN color ON product.color = color.id_color 
-                  WHERE color.color_name = :color";
-        $params = [':color' => $color];
+        $query = "SELECT product.*, color.color_name, color.id_color
+                  FROM product 
+                  INNER JOIN color ON product.color = color.id_color
+                  WHERE color.id_color = :idColor";
+        $params = [':idColor' => $idColor];
         return $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
 

@@ -31,32 +31,26 @@ switch ($params[0]) {
         exit;
     default:
         $categoryName = $params[0];
+        // Gestion des filtres de couleur et de taille
 
-         if (isset($_GET['color'])) {
-                $color = $_GET['color'] ?? '';
-                $color_already_selected = explode(',', $color);
-               
-               if (count($color_already_selected) > 1) {
-                    
-                   foreach ($color_already_selected as $colorName) {
-                       (new ProductController)->productsFilteredByColor($colorName);
-                   }
+       // Gestion des filtres de couleur
+        if (isset($_GET['color'])) {
+            $color = $_GET['color'] ?? '';
+            $color_already_selected = explode(',', $color);
             
-        
-               } else {
-                   (new ProductController)->productsFilteredByColor($color);
-                   exit;
-               }
+            // Passer TOUTES les couleurs en une seule fois
+            (new ProductController)->productsFilteredByColor($color_already_selected);
+            exit;
         }
-
+        
         if (isset($_GET['size'])) {
             $sizeName = $_GET['size'];
-            (new ProductController)->productsFilteredBySize($sizeName);
-                exit;
-        }   
-       
+            (new ProductController)->productsFilteredBySize(sizeName: $sizeName);
+            exit;
+        }
 
-        
+
+
         // Routes dynamiques pour catégories/sous-catégories
         if (count($params) == 1) {
             // Une seule partie : catégorie

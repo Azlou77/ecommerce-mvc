@@ -47,6 +47,7 @@ class ProductController extends Controller
 
      public function productsByCategory($categoryName)
     {
+        
         $tab_productsByCategory = $this->getProductsByCategory($categoryName);
         $tab_colors = $this->productModel->getAllColors();
         $tab_sizes = $this->productModel->getAllSizes();
@@ -72,21 +73,22 @@ class ProductController extends Controller
 
     
 
-    private function getFilteredProductsByColor($color)
+    private function getFilteredProductsByColor($idColor)
 
     {
-       
-        return $this->productModel->getFilteredProductsByColor($color);
+        return $this->productModel->getFilteredProductsByColor($idColor);
     }
 
-    public function productsFilteredByColor($color)
+    public function productsFilteredByColor($idColor)
     {
-        $tab_productsByColor = $this->getFilteredProductsByColor($color);
+        
+        $tab_productsByColor = $this->getFilteredProductsByColor($idColor);
         $tab_colors = $this->productModel->getAllColors();
         $tab_sizes = $this->productModel->getAllSizes();
         $tab_subcategories = $this->categoryModel->getAllSubcategories();
         $tab_categories = $this->categoryModel->getAllCategories();
         $this->render('productsFilteredByColor', compact('tab_productsByColor', 'tab_colors', 'tab_sizes', 'tab_subcategories', 'tab_categories'));
+        
     }
 
     private function getFilteredProductsBySize($sizeName)

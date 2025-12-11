@@ -2,18 +2,18 @@
     <div class="top-filter-head">Product Filters</div>
     <div class="common-filter">
         <div class="head">Color</div>
-        <form id="colorForm">
+        <form id="colorForm" method="GET">
             <ul>
                 <?php   
-                $selectedColors = isset($_GET['color']) ? (array)$_GET['color'] : [];
+                $color = isset($_GET['color']) ? (array)$_GET['color'] : [];
                 foreach ($tab_colors as $colors): 
-                $isChecked = in_array($colors['color_name'], $selectedColors) ? 'checked' : '';
+                $isChecked = in_array($colors['color_name'], $color) ? 'checked' : '';
                 ?>
 
                 <li class="filter-list">
                     <input type="checkbox" 
                            name="color[]" 
-                           id="color_<?php echo $colors['id_color']; ?>" 
+                           id="<?php echo $colors['id_color']; ?>" 
                            value="<?php echo $colors['color_name']; ?>"
                            <?php echo $isChecked; ?> >
                            
@@ -39,7 +39,7 @@
             var category = history[1];
             
             checkboxes.forEach((checkbox) => {
-                colors.push(checkbox.value);
+                colors.push(checkbox.id);
             });
             var colorParam = colors.join(',');
             var newUrl = '/' + category + '?color=' + colorParam;
