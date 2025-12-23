@@ -68,16 +68,44 @@ class ProductModel
         return $this->connexion->query("SELECT * FROM color")->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getFilteredProductsByColor($idColor)
-    {
+   /*public function getColorsById($idColor)
+   {
+     
+       $query = "SELECT * FROM color WHERE id_color = :idColor";
+       $params = [':idColor' => $idColor];
+       return $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
         
-        $query = "SELECT product.*, color.color_name, color.id_color
+    }
+    */
+    
+    public function getColorsById($idColor)
+    {
+        $query = "SELECT product.*, color.id_color, color.color_name 
                   FROM product 
-                  INNER JOIN color ON product.color = color.id_color
+                  INNER JOIN color ON product.color = color.id_color 
                   WHERE color.id_color = :idColor";
         $params = [':idColor' => $idColor];
         return $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    /*
+    public function getFilteredProductsByColor($idColor)
+  {
+     
+    
+      $querySecond =
+      "SELECT COUNT(*) as product_count, color.color_name, color.id_color
+       FROM product
+       INNER JOIN color ON product.color = color.id_color
+       WHERE color.id_color = :idColor IN ( '" . implode("','", $selectedColors) . "' )
+       ";
+      $params = [':idColor' => $idColor];
+      return $this->connexion->query($querySecond, $params)->fetchAll(PDO::FETCH_ASSOC);
+  }
+      */
+
+
+  
 
       public function getAllSizes()
     {

@@ -37,12 +37,17 @@ switch ($params[0]) {
         if (isset($_GET['color'])) {
             $color = $_GET['color'] ?? '';
             $color_already_selected = explode(',', $color);
-            
-            // Passer TOUTES les couleurs en une seule fois
-            (new ProductController)->productsFilteredByColor($color_already_selected);
-            exit;
+              if (count($color_already_selected) > 1) {
+                   foreach ($color_already_selected as $colorName) {
+
+                       (new ProductController)->colorsById($colorName);
+                   }
+               } else {
+                   (new ProductController)->colorsById($color);
+                   exit;
+            }
         }
-        
+
         if (isset($_GET['size'])) {
             $sizeName = $_GET['size'];
             (new ProductController)->productsFilteredBySize(sizeName: $sizeName);
