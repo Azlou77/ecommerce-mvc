@@ -33,19 +33,16 @@ switch ($params[0]) {
         $categoryName = $params[0];
         // Gestion des filtres de couleur et de taille
 
-       // Gestion des filtres de couleur
-        if (isset($_GET['color'])) {
-            $color = $_GET['color'] ?? '';
-            $color_already_selected = explode(',', $color);
-              if (count($color_already_selected) > 1) {
-                   foreach ($color_already_selected as $colorName) {
+        $color = $_GET['color'] ?? '';
+        $paramsColors = explode(',', $color);
 
-                       (new ProductController)->colorsById($colorName);
-                   }
-               } else {
-                   (new ProductController)->colorsById($color);
-                   exit;
+       // Gestion des filtres de couleur
+        if (isset($color)) {
+            foreach ($paramsColors as $colorName) {
+                (new ProductController)->productsFilteredByColor($colorName);
             }
+            exit;
+
         }
 
         if (isset($_GET['size'])) {

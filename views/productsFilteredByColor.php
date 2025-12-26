@@ -54,7 +54,7 @@
                             <div class="single-product">
                                 <img class="img-fluid" src="assets/img/sartoriale/<?php echo $productsByColor['img'] . '.jpg'; ?>" style="width:255px;  height:271px">
                                 <div class="product-details">
-                                    <h6><?php echo $productsByColor['product_name'] ?></h6>
+                                    <h6><?php echo $productsByColor['color'] ?></h6>
                                     <div class="price">
                                         <h6 style="font-size:16px;"><?php echo $productsByColor['price']; ?></h6>
                                     </div>

@@ -72,12 +72,15 @@ class ProductController extends Controller
     }
 
     
+    /*
     
     private function getColorsById($idColor)
     {
         return $this->productModel->getColorsById($idColor);
     }
+    */
 
+    /*
     public function colorsById($idColor)
     {
         $tab_productsByColor = $this->getColorsById($idColor);
@@ -87,20 +90,24 @@ class ProductController extends Controller
         $tab_categories = $this->categoryModel->getAllCategories();
         $this->render('productsFilteredByColor', compact('tab_productsByColor', 'tab_colors', 'tab_sizes', 'tab_subcategories', 'tab_categories'));
     }
+    */
 
-    /*
+    private function getFilteredProductsByColor($idColor)
+    {
+        return $this->productModel->getFilteredProductsByColor($idColor);
+    }
+
     public function productsFilteredByColor($idColor)
     {
-        
         $tab_productsByColor = $this->getFilteredProductsByColor($idColor);
         $tab_colors = $this->productModel->getAllColors();
         $tab_sizes = $this->productModel->getAllSizes();
         $tab_subcategories = $this->categoryModel->getAllSubcategories();
         $tab_categories = $this->categoryModel->getAllCategories();
         $this->render('productsFilteredByColor', compact('tab_productsByColor', 'tab_colors', 'tab_sizes', 'tab_subcategories', 'tab_categories'));
-        
+
     }
-        */
+    
 
     private function getFilteredProductsBySize($sizeName)
     {

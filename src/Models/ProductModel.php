@@ -68,61 +68,33 @@ class ProductModel
         return $this->connexion->query("SELECT * FROM color")->fetchAll(PDO::FETCH_ASSOC);
     }
 
-   /*public function getColorsById($idColor)
-   {
-     
-       $query = "SELECT * FROM color WHERE id_color = :idColor";
-       $params = [':idColor' => $idColor];
-       return $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
-        
-    }
-    */
     
-    public function getColorsById($idColor)
-    {
-        $query = "SELECT product.*, color.id_color, color.color_name 
-                  FROM product 
-                  INNER JOIN color ON product.color = color.id_color 
-                  WHERE color.id_color = :idColor";
-        $params = [':idColor' => $idColor];
-        return $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    /*
+    
     public function getFilteredProductsByColor($idColor)
-  {
+    {
      
-    
-      $querySecond =
-      "SELECT COUNT(*) as product_count, color.color_name, color.id_color
-       FROM product
-       INNER JOIN color ON product.color = color.id_color
-       WHERE color.id_color = :idColor IN ( '" . implode("','", $selectedColors) . "' )
-       ";
-      $params = [':idColor' => $idColor];
-      return $this->connexion->query($querySecond, $params)->fetchAll(PDO::FETCH_ASSOC);
-  }
-      */
+        $firstQuery = "SELECT id_color FROM color WHERE id_color = :idColor";
+        $params = [':idColor' => $idColor];
+        return $this->connexion->query($firstQuery, $params)->fetchAll(PDO::FETCH_ASSOC);
+    }
 
-
-  
-
-      public function getAllSizes()
+    public function getAllSizes()
     {
         return $this->connexion->query("SELECT * FROM size")->fetchAll(PDO::FETCH_ASSOC);
     }
 
-     public function getFilteredProductsBySizes($sizeName){
+    public function getFilteredProductsBySizes($sizeName)
+    {
         $query = "SELECT product.*, size.size_name FROM product 
                   INNER JOIN size ON product.size = size.id_size 
                   WHERE size.size_name = :sizeName";
         $params = [':sizeName' => $sizeName];
 
         return $this->connexion->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
-     }
+    }
 
-    
-    
+
+
 
 
     public function getFilteredProductsByPriceRange($priceMin, $priceMax): array
